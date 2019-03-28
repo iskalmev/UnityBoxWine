@@ -60,10 +60,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Character Classes\BaseMage.cs" />
-    <Compile Include="Assets\Scripts\Character Classes\scr_BaseClass.cs" />
-    <Compile Include="Assets\Scripts\Character Classes\scr_BaseWarrior.cs" />
-    <Compile Include="Assets\Scripts\TestGui.cs" />
+    <Compile Include="Assets\Scripts\_old\BasePlayer\BaseCharacter.cs" />
+    <Compile Include="Assets\Scripts\_old\CreatePlayer\CreateNewCharacter.cs" />
+    <Compile Include="Assets\Scripts\_old\GameInformation.cs" />
+    <Compile Include="Assets\Scripts\_old\Saving and Loading\LoadInformation.cs" />
+    <Compile Include="Assets\Scripts\_old\Saving and Loading\SaveInformation.cs" />
+    <Compile Include="Assets\Scripts\_old\TestGui.cs" />
+    <Compile Include="Assets\Scripts\Abilities\BaseAbility.cs" />
+    <Compile Include="Assets\Scripts\Abilities\GatorBite.cs" />
+    <Compile Include="Assets\Scripts\Abilities\MitchAttack.cs" />
+    <Compile Include="Assets\Scripts\BattleCalculations\BattleCalculations.cs" />
+    <Compile Include="Assets\Scripts\Character Classes\BaseBoxWineBandit.cs" />
+    <Compile Include="Assets\Scripts\Character Classes\BaseClass.cs" />
+    <Compile Include="Assets\Scripts\Character Classes\BaseGator.cs" />
+    <Compile Include="Assets\Scripts\Turn Based Combat\BattleGUI.cs" />
+    <Compile Include="Assets\Scripts\Turn Based Combat\BattleStateStart.cs" />
     <Compile Include="Assets\Scripts\Turn Based Combat\TurnBasedCombatStateMachine.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Box Wine/UnityBoxWine/BoxWineBandit/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
