@@ -5,7 +5,7 @@ using UnityEngine;
 public class TestGui : MonoBehaviour
 {
 
-    private BaseClass class1 = new BaseMage();
+    private BaseClass class1 = new BaseBoxWineBandit();
 
     // Start is called before the first frame update
     void Start()
