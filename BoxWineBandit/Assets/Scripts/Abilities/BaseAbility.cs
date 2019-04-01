@@ -21,5 +21,11 @@ public class BaseAbility
         set { abilityDesc = value; }
     }
 
+    public void activateAbility(string abilityName, Vector3 source, Vector3 target)
+    {
+
+
+    }
+
 
 }
