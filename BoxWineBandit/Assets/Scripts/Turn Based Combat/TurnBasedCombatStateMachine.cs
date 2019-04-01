@@ -5,6 +5,11 @@ using UnityEngine;
 public class TurnBasedCombatStateMachine : MonoBehaviour
 {
 
+    public static BattleStateStart battleStateStartScript = new BattleStateStart();
+    public static BaseAbility usedAbilty;
+    private BattleCalculations battleCalcScript = new BattleCalculations();
+
+
     public enum BattleStates
     {
         START,
@@ -13,10 +18,11 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
         ENEMYCHOICE,
         ENEMYANIMATE,
         LOSE,
-        WIN
+        WIN,
+        CALCULATEDAMAGE
     }
 
-    private BattleStates currentState;
+    public static BattleStates currentState;
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +33,19 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
         switch (currentState)
         {
             case (BattleStates.START) :
+
+                battleStateStartScript.PrepareBattle();
+
                 break;
             case (BattleStates.PLAYERCHOICE):
+                
+                break;
+            case (BattleStates.CALCULATEDAMAGE):
+                battleCalcScript.CalculateUsedAbilityDamage(usedAbilty);
                 break;
             case (BattleStates.PLAYERANIMATE):
                 break;
