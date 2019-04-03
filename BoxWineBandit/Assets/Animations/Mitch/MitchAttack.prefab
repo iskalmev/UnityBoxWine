@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1994792932471368826}
   - component: {fileID: 3263580605702880639}
   m_Layer: 0
-  m_Name: MitchAttack0008
+  m_Name: MitchAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
