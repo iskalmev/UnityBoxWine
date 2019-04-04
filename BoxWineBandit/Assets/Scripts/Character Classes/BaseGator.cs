@@ -14,7 +14,7 @@ public class BaseGator : BaseClass
         Power = 10;
         CritChance = 15;
         HitChance = 10;
-        AbilityOne = new GatorBite();
+        //AbilityOne = new GatorBite();
 
     }
 }

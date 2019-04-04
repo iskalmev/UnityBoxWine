@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0cb01627b9abc4c4483d84f306ab1edd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Mitch: {fileID: 21300000, guid: 8ea6666878cf28945a4dc84c3df4049d, type: 3}
+  - FMM: {fileID: 21300000, guid: c5b0fc0381cfc834790eaf31def51fb9, type: 3}
+  - Hurricane: {fileID: 21300000, guid: 91f974b26766e144784113bfb41529eb, type: 3}
+  - Gator: {fileID: 21300000, guid: 9ea254b31ffe48248a4b61203d67137d, type: 3}
+  - Big: {fileID: 21300000, guid: e2be385a4db7cde488e08a8f3e0c0e85, type: 3}
+  - Madoka: {fileID: 21300000, guid: c3a7d8f653c9c4a4c925f9f7be1083cc, type: 3}
+  - Heart: {fileID: 21300000, guid: 46196b0014d59e442a18fc334124d672, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

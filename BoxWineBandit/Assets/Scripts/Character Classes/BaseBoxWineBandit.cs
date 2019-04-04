@@ -15,7 +15,7 @@ public class BaseBoxWineBandit : BaseClass
         Power = 10;
         CritChance = 15;
         HitChance = 10;
-        AbilityOne = new MitchAttack();
+       // AbilityOne = new MitchAttack();
 
     }
 }

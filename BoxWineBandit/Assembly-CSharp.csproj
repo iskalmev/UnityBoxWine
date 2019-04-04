@@ -69,11 +69,11 @@
     <Compile Include="Assets\Scripts\Abilities\AbilityScript.cs" />
     <Compile Include="Assets\Scripts\Abilities\BaseAbility.cs" />
     <Compile Include="Assets\Scripts\Abilities\BigMitch\Boot.cs" />
-    <Compile Include="Assets\Scripts\Abilities\GatorBite.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Gator\GatorBite.cs" />
     <Compile Include="Assets\Scripts\Abilities\Hurricane\BasicWindAttack.cs" />
     <Compile Include="Assets\Scripts\Abilities\MadokaMitch\MagicBolt.cs" />
     <Compile Include="Assets\Scripts\Abilities\Mitch\BoxWine.cs" />
-    <Compile Include="Assets\Scripts\Abilities\MitchAttack.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Mitch\MitchAttack.cs" />
     <Compile Include="Assets\Scripts\Abilities\Nathan\StealCat.cs" />
     <Compile Include="Assets\Scripts\Abilities\Rat\RatThrow.cs" />
     <Compile Include="Assets\Scripts\Abilities\Rat\RatWall.cs" />
@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Turn Based Combat\BattleGUI.cs" />
     <Compile Include="Assets\Scripts\Turn Based Combat\BattleStateStart.cs" />
     <Compile Include="Assets\Scripts\Turn Based Combat\TurnBasedCombatStateMachine.cs" />
+    <Compile Include="Assets\UI\JournalTextAndImage.cs" />
     <None Include="Assets\Art\MadokaMitchika\BeamShader.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/School Projects/Alt Game Dev/BetterGame/UnityBoxWine/BoxWineBandit/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
