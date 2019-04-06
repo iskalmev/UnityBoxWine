@@ -13,7 +13,9 @@ public class MitchAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        anim = this.gameObject.GetComponent<Animator>();
+      
+       this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
 
     }
@@ -21,15 +23,15 @@ public class MitchAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
 
 
     IEnumerator Damagespriteflash()
     {
-       
 
+        
         var damagecolor = new Color32(255, 117, 177, 166);
         SpriteRenderer renderer = target.GetComponent<SpriteRenderer>();
 
@@ -37,18 +39,22 @@ public class MitchAttack : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         renderer.material.color = Color.white;
         damaged = true;
+        
     }
 
     public void getInfo(GameObject t, GameObject s)
     {
+        
         target = t;
         source = s;
-        transform.Translate(target.transform.position);
+        transform.position = target.transform.position + new Vector3(0,0,1);
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         damaged = false;
-        anim.Play("Entry");
+        anim.Rebind();
+        
         direction = (target.transform.position - transform.position).normalized;
         StartCoroutine(Damagespriteflash());
+        
     }
 }
 

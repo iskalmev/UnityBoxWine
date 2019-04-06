@@ -30,7 +30,7 @@ public class Boot : MonoBehaviour
             }
             else
             {
-                transform.position += direction * speed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
             }
         }
         else
@@ -62,7 +62,8 @@ public class Boot : MonoBehaviour
         source = s;
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         damaged = false;
-        transform.Translate(source.transform.position + new Vector3(0,50,0));
+        isMoving = true;
+        transform.position = target.transform.position + new Vector3(0,10,0);
         direction = (target.transform.position - transform.position).normalized;
     }
 }

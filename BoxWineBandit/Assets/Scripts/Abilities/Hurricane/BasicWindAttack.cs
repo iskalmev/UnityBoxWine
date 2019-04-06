@@ -9,12 +9,13 @@ public class BasicWindAttack : MonoBehaviour
     private bool isMoving, damaged;
     private Vector3 direction;
     public float speed = 5f;
-    public Animator anim;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
     }
 
@@ -31,13 +32,15 @@ public class BasicWindAttack : MonoBehaviour
             }
             else
             {
-                transform.position += direction * speed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
+
             }
         }
         else
         {
             if (!damaged)
             {
+              //  this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 StartCoroutine(Damagespriteflash());
             }
 
@@ -62,10 +65,11 @@ public class BasicWindAttack : MonoBehaviour
         target = t;
         source = s;
         damaged = false;
-        transform.Translate(source.transform.position);
+        isMoving = true;
+        transform.position = source.transform.position;
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         direction = (target.transform.position - transform.position).normalized;
         anim.ResetTrigger("isHit");
-        anim.Play("Entry");
+        anim.Play("WindAttackStart");
     }
 }

@@ -13,33 +13,24 @@ public class RatWall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        anim = this.gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isMoving)
-        {
-
-            if (transform.position == source.transform.position + new Vector3 (0,10,0))
-            {
-                isMoving = false;
-            }
-            else
-            {
-                transform.position += direction * speed * Time.deltaTime;
-            }
-        }
+        
     }
 
 
     public void getInfo(GameObject t, GameObject s)
     {
         source = s;
-        transform.Translate(source.transform.position + new Vector3(10, 0, 0));
-        direction = ((source.transform.position + new Vector3(10, 0, 0)) - transform.position).normalized;
-        anim.Play("Entry");
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+
+        this.gameObject.transform.position = source.transform.position;
+        //direction = ((source.transform.position + new Vector3(.25f, 0, 0)) - transform.position).normalized;
+        anim.Rebind();
     }
 }

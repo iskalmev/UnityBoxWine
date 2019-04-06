@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MadokaMitch : MonoBehaviour
+public class MagicBolt : MonoBehaviour
 {
 
     private GameObject target, source;
@@ -12,7 +12,7 @@ public class MadokaMitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        this.gameObject.GetComponent<TrailRenderer>().enabled = false;
 
 
     }
@@ -23,14 +23,14 @@ public class MadokaMitch : MonoBehaviour
         if (isMoving)
         {
 
-            if (transform.position == target.transform.position)
+            if (this.gameObject.transform.position == target.transform.position)
             {
                 isMoving = false;
-                this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             }
             else
             {
-                transform.position += direction * speed * Time.deltaTime;
+               // this.gameObject.transform.position += direction * speed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
             }
         }
         else
@@ -54,15 +54,22 @@ public class MadokaMitch : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         renderer.material.color = Color.white;
         damaged = true;
+        this.gameObject.GetComponent<TrailRenderer>().enabled = false;
+
     }
 
     public void getInfo(GameObject t, GameObject s)
     {
         target = t;
         source = s;
-        this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        isMoving = true;
         damaged = false;
-        transform.Translate(source.transform.position);
+        this.gameObject.GetComponent<TrailRenderer>().enabled = true;
+        this.gameObject.GetComponent<TrailRenderer>().time = 0;
+        this.gameObject.transform.position = source.transform.position;
         direction = (target.transform.position - transform.position).normalized;
+        this.gameObject.GetComponent<TrailRenderer>().time = 0.75f;
+
+
     }
 }

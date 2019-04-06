@@ -27,7 +27,7 @@ public class BoxWine : MonoBehaviour
     {
 
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.75f);
         StartCoroutine(Damagespriteflash());
     }
 
@@ -52,7 +52,7 @@ public class BoxWine : MonoBehaviour
         source = s;
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         damaged = false;
-        transform.Translate(source.transform.position);
+        transform.position = source.transform.position;
         direction = (target.transform.position - transform.position).normalized;
         StartCoroutine(boxWineFlash());
     }

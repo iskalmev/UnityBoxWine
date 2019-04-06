@@ -7,7 +7,7 @@ public class JournalTextAndImage : MonoBehaviour
 {
 
     private bool backButton;
-    public Sprite Mitch, FMM, Hurricane, Gator, Big, Madoka, Heart;
+    public Sprite Mitch, FMM, Hurricane, Gator, Big, Madoka, Heart, Easter, Halloween, Itchell;
     private int count = 0;
     public Text textObj;
 
@@ -33,7 +33,7 @@ public class JournalTextAndImage : MonoBehaviour
             case 0:
 
                 gameObject.GetComponent<Image>().overrideSprite = Mitch;
-                textObj.text = "Mitchell Hash:\n \nA big loser. \nMitch is a man… well let’s not go too far there. \nMitch is a person who dwells in the depths of North Carolina.";
+                textObj.text = "Mitchell Hash:\n \nA big loser. \nMitch is a man… well let’s not go too far there. \nMitch is a person who dwells in the depths of North Carolina. \nMitch often gets bullied by his friends and by himself.";
                 break;
 
             case 1:
@@ -69,7 +69,22 @@ public class JournalTextAndImage : MonoBehaviour
             case 6:
 
                 gameObject.GetComponent<Image>().overrideSprite = Heart;
-                textObj.text = "Heart of the Cards Mitch : \n \nMitchell’s love of Magic the Gathering turned too far into obsession and thus this Mitch grew to power. \nThis Mitch is so powerful that it uses references from other card games when playing Magic and no one stops him from doing so.";
+                textObj.text = "Heart of the Cards Mitch : \n \nMitchell’s love of Magic the Gathering turned too far into obsession and thus this Mitch grew to power. \nThis Mitch is so powerful that it uses references from other card games when playing Magic and no one can stop him from doing so.";
+                break;
+
+            case 7:
+                gameObject.GetComponent<Image>().overrideSprite = Easter;
+                textObj.text = "Easter Mitch : \n \nThis is an Easter Special Mitch. \nMade in the spirit of the holiday and out of boredom.";
+                break;
+
+            case 8:
+                gameObject.GetComponent<Image>().overrideSprite = Halloween;
+                textObj.text = "Hashoween : \n \nThe Halloween version of Mitch. \nFun Fact : This Mitch didn't get finished for a whole year and is the most recent picture created.";
+                break;
+
+            case 9:
+                gameObject.GetComponent<Image>().overrideSprite = Itchell;
+                textObj.text = "Itchell Rash : \n \nHa ha \nLow effort joke.";
                 break;
 
 
@@ -92,7 +107,7 @@ public class JournalTextAndImage : MonoBehaviour
     {
         
         backButton = false;
-        if(count < 6)
+        if(count < 9)
         {
             count += 1;
         }

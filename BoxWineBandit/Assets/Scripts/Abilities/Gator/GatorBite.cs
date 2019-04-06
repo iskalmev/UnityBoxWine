@@ -13,6 +13,8 @@ public class GatorBite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = this.gameObject.GetComponent<Animator>();
+
         this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
 
@@ -37,18 +39,22 @@ public class GatorBite : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         renderer.material.color = Color.white;
         damaged = true;
+
     }
 
     public void getInfo(GameObject t, GameObject s)
     {
+
         target = t;
         source = s;
-        transform.Translate(target.transform.position);
+        transform.position = target.transform.position + new Vector3(0, 0, 1);
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         damaged = false;
-        anim.Play("Entry");
+        anim.Rebind();
+
         direction = (target.transform.position - transform.position).normalized;
         StartCoroutine(Damagespriteflash());
+
     }
 }
 

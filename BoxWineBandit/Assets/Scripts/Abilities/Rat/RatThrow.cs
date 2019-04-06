@@ -30,7 +30,7 @@ public class RatThrow : MonoBehaviour
             }
             else
             {
-                transform.position += direction * speed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed);
             }
         }
         else
@@ -62,7 +62,8 @@ public class RatThrow : MonoBehaviour
         source = s;
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         damaged = false;
-        transform.Translate(source.transform.position);
+        isMoving = true;
+        transform.position = source.transform.position;
         direction = (target.transform.position - transform.position).normalized;
     }
 }

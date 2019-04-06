@@ -13,7 +13,8 @@ public class StealCat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
 
     }
 
@@ -22,26 +23,27 @@ public class StealCat : MonoBehaviour
     {
         if(forward && isMoving)
         {
-            if (transform.position == target.transform.position)
+            if (source.transform.position == target.transform.position)
             {
                 forward = false;
                 direction = (ogSource - transform.position).normalized;
             }
             else
             {
-                source.transform.position += direction * speed * Time.deltaTime;
+                source.transform.position = Vector3.MoveTowards(source.transform.position, target.transform.position, speed);
             }
         }
         else if(!forward && isMoving)
         {
-            if (transform.position == target.transform.position)
+            if (transform.position == ogSource)
             {
-                forward = false;
+                isMoving = false;
             }
             else
             {
-                transform.position += direction * speed * Time.deltaTime;
-                source.transform.position += direction * speed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, ogSource, speed);
+                source.transform.position = Vector3.MoveTowards(source.transform.position, ogSource, speed);
+
             }
         }
         else
@@ -59,12 +61,13 @@ public class StealCat : MonoBehaviour
     IEnumerator Damagespriteflash()
     {
         var damagecolor = new Color32(22, 225, 69, 166);
-        SpriteRenderer renderer = target.GetComponent<SpriteRenderer>();
+        SpriteRenderer renderer = source.GetComponent<SpriteRenderer>();
 
         renderer.material.color = damagecolor;
         yield return new WaitForSeconds(.1f);
         renderer.material.color = Color.white;
         damaged = true;
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     public void getInfo(GameObject t, GameObject s)
@@ -72,9 +75,10 @@ public class StealCat : MonoBehaviour
         target = t;
         source = s;
         ogSource = source.transform.position;
+        isMoving = true;
         forward = true;
         damaged = false;
-        transform.Translate(target.transform.position);
+        transform.position = target.transform.position;
         direction = (target.transform.position - transform.position).normalized;
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
     }
