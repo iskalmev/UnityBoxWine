@@ -10,12 +10,15 @@ public class BaseBoxWineBandit : BaseClass
 
         CharacterClassName = "Box Wine Bandit";
         CharacterClassDescription = "This is Main Character Class";
+        MaxHealth = 12;
         Health = 12;
-        Defense = 14;
-        Power = 10;
-        CritChance = 15;
-        HitChance = 10;
-       // AbilityOne = new MitchAttack();
+        Defense = 1;
+        Power = 5;
+        CritChance = 5;
+        HitChance = 95;
+        AbilityOne = new BoxWineBanditAbilityOne();
+        AbilityTwo = new BoxWineBanditAbilityTwo();
+        Defeated = false;
 
     }
 }

@@ -8,17 +8,38 @@ public class BaseClass
     private string characterClassName;
     private string characterClassDescription;
     //Stats
+    private int maxHealth;
     private int health;
     private int hitChance;
     private int power;
     private int defense;
     private int critChance;
     private BaseAbility abilityOne;
+    private BaseAbility abilityTwo;
+    private bool defeated;
+
+    public bool Defeated
+    {
+        get { return defeated; }
+        set { defeated = value; }
+    }
+
+    public int MaxHealth
+    {
+        get { return maxHealth; }
+        set { maxHealth = value; }
+    }
 
     public BaseAbility AbilityOne
     {
         get { return abilityOne; }
         set { abilityOne = value; }
+    }
+
+    public BaseAbility AbilityTwo
+    {
+        get { return abilityTwo; }
+        set { abilityTwo = value; }
     }
 
     public string CharacterClassName

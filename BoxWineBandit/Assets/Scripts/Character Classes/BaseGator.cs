@@ -9,12 +9,16 @@ public class BaseGator : BaseClass
 
         CharacterClassName = "Gator";
         CharacterClassDescription = "This is the Gator class";
-        Health = 12;
-        Defense = 14;
-        Power = 10;
-        CritChance = 15;
-        HitChance = 10;
-        //AbilityOne = new GatorBite();
+        MaxHealth = 10;
+        Health = 10;
+        Defense = 2;
+        Power = 4;
+        CritChance = 0;
+        HitChance = 95;
+        AbilityOne = new GatorAbilityOne();
+        AbilityTwo = new GatorAbilityOne();
+        Defeated = false;
+        
 
     }
 }

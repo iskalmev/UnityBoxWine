@@ -7,7 +7,13 @@ public class BaseAbility
 
     private string abilityName;
     private string abilityDesc;
+    private int abilityType;
 
+    public int AbilityType
+    {
+        get { return abilityType; }
+        set { abilityType = value; }
+    }
 
     public string AbilityName
     {
@@ -21,9 +27,8 @@ public class BaseAbility
         set { abilityDesc = value; }
     }
 
-    public void activateAbility(string abilityName, Vector3 source, Vector3 target)
+    public void UseAbility(GameObject t, GameObject s)
     {
-
 
     }
 
