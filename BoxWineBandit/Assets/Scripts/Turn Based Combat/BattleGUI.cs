@@ -23,6 +23,8 @@ public class BattleGUI : MonoBehaviour
 
     public static UnityEngine.GameObject gatorBite;
 
+    public static UnityEngine.UI.Text textBoi;
+
 
 
     public static GameObject mitchAttack, mitchWine, ratThrown, ratWall, nathanSteal, nathanRanch, gatorAttack;
@@ -33,7 +35,12 @@ public class BattleGUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        textBoi = transform.Find("Text").GetComponent<UnityEngine.UI.Text>();
+
         
+
+
         EnemyOneImage = transform.Find("EnemyOneImage").GetComponent<UnityEngine.UI.Image>();
         EnemyTwoImage = transform.Find("EnemyTwoImage").GetComponent<UnityEngine.UI.Image>();
         EnemyThreeImage = transform.Find("EnemyThreeImage").GetComponent<UnityEngine.UI.Image>();

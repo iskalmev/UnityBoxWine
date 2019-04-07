@@ -137,7 +137,11 @@ public class BattleCalculations
             if (attacker.CritChance > randomNumber)
             {
                 defender.Health += attacker.Power + defender.Defense;
-                if(defender.Health > defender.MaxHealth)
+
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " critically healed " + defender.CharacterClassName + " for " + (attacker.Power + defender.Defense) + " health.";
+
+
+                if (defender.Health > defender.MaxHealth)
                 {
                     defender.Health = defender.MaxHealth;
                 }
@@ -145,6 +149,9 @@ public class BattleCalculations
             else
             {
                 defender.Health += attacker.Power;
+
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " healed " + defender.CharacterClassName + " for " + (attacker.Power) + " health.";
+
                 if (defender.Health > defender.MaxHealth)
                 {
                     defender.Health = defender.MaxHealth;
