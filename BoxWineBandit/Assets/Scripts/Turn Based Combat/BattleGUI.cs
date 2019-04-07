@@ -25,8 +25,7 @@ public class BattleGUI : MonoBehaviour
 
 
 
-    //THIS IS WHat I CHANGED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public GameObject mitchAttack, mitchWine, ratThrown, ratWall, nathanSteal, nathanRanch, gatorAttack;
+    public static GameObject mitchAttack, mitchWine, ratThrown, ratWall, nathanSteal, nathanRanch, gatorAttack;
 
 
 
@@ -35,9 +34,9 @@ public class BattleGUI : MonoBehaviour
     void Start()
     {
         
-        EnemyOneImage = transform.Find("EnemyOne").GetComponent<UnityEngine.UI.Image>();
-        EnemyTwoImage = transform.Find("EnemyTwo").GetComponent<UnityEngine.UI.Image>();
-        EnemyThreeImage = transform.Find("EnemyThree").GetComponent<UnityEngine.UI.Image>();
+        EnemyOneImage = transform.Find("EnemyOneImage").GetComponent<UnityEngine.UI.Image>();
+        EnemyTwoImage = transform.Find("EnemyTwoImage").GetComponent<UnityEngine.UI.Image>();
+        EnemyThreeImage = transform.Find("EnemyThreeImage").GetComponent<UnityEngine.UI.Image>();
         MCImage = transform.Find("MCimage").GetComponent<UnityEngine.UI.Image>();
         RatKingImage = transform.Find("RatKingImage").GetComponent<UnityEngine.UI.Image>();
         NathanImage = transform.Find("NathanImage").GetComponent<UnityEngine.UI.Image>();
@@ -46,11 +45,14 @@ public class BattleGUI : MonoBehaviour
         EnemyOneOb = transform.Find("EnemyOne").GetComponent<UnityEngine.GameObject>();
         EnemyTwoOb = transform.Find("EnemyTwo").GetComponent<UnityEngine.GameObject>();
         EnemyThreeOb = transform.Find("EnemyThree").GetComponent<UnityEngine.GameObject>();
-        MCOb = transform.Find("MCimage").GetComponent<UnityEngine.GameObject>();
+        MCOb = transform.Find("Mitch").GetComponent<UnityEngine.GameObject>();
         RatKingOb = transform.Find("RatKingImage").GetComponent<UnityEngine.GameObject>();
         NathanOb = transform.Find("NathanImage").GetComponent<UnityEngine.GameObject>();
 
         gatorBite = transform.Find("GatorBite0000").GetComponent<UnityEngine.GameObject>();
+
+
+        gatorAttack = this.gameObject.GetComponent<AbilityHolder>().gatorAttack;
 }
 
     // Update is called once per frame

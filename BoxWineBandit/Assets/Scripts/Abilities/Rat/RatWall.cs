@@ -29,7 +29,7 @@ public class RatWall : MonoBehaviour
         source = s;
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
 
-        this.gameObject.transform.position = source.transform.position;
+        this.gameObject.transform.position = source.transform.position + new Vector3(2f, 1.5f, 0);
         //direction = ((source.transform.position + new Vector3(.25f, 0, 0)) - transform.position).normalized;
         anim.Rebind();
     }

@@ -42,17 +42,17 @@ public class GatorBite : MonoBehaviour
 
     }
 
-    public void getInfo(GameObject t, GameObject s)
+    public void getInfo(GameObject t, GameObject s, GameObject u)
     {
         Debug.Log("GATOR");
         target = t;
         source = s;
-        transform.position = target.transform.position + new Vector3(0, 0, 1);
+        u.transform.position = target.transform.position + new Vector3(0, 0, 1);
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         damaged = false;
         anim.Rebind();
 
-        direction = (target.transform.position - transform.position).normalized;
+        direction = (target.transform.position - u.transform.position).normalized;
         StartCoroutine(Damagespriteflash());
 
     }

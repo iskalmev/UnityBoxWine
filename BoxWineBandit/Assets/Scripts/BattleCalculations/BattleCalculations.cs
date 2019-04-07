@@ -5,6 +5,7 @@ using UnityEngine;
 public class BattleCalculations
 {
 
+
     public void CalculateUsedAbilityDamage(BaseAbility usedAbility)
     {
         if (usedAbility.AbilityType == 1)
@@ -260,27 +261,27 @@ public class BattleCalculations
 
         if(source == TurnBasedCombatStateMachine.battleStateStartScript.EnemyOne)
         {
-            sour = BattleGUI.EnemyOneOb;
+            sour = GameObject.Find("EnemyOne").gameObject;
         }
         else if (source == TurnBasedCombatStateMachine.battleStateStartScript.EnemyTwo)
         {
-            sour = BattleGUI.EnemyTwoOb;
+            sour = GameObject.Find("EnemyTwo").gameObject;
         }
         else if (source == TurnBasedCombatStateMachine.battleStateStartScript.EnemyThree)
         {
-            sour = BattleGUI.EnemyThreeOb;
+            sour = GameObject.Find("EnemyThree").gameObject;
         }
         else if (source == TurnBasedCombatStateMachine.battleStateStartScript.MC)
         {
-            sour = BattleGUI.MCOb;
+            sour = GameObject.Find("Mitch").gameObject;
         }
         else if (source == TurnBasedCombatStateMachine.battleStateStartScript.ratKing)
         {
-            sour = BattleGUI.RatKingOb;
+            sour = GameObject.Find("RatKing").gameObject;
         }
         else //(source == TurnBasedCombatStateMachine.battleStateStartScript.nathan)
         {
-            sour = BattleGUI.NathanOb;
+            sour = GameObject.Find("Nathan").gameObject;
         }
 
 
@@ -289,27 +290,27 @@ public class BattleCalculations
 
         if (target == TurnBasedCombatStateMachine.battleStateStartScript.EnemyOne)
         {
-            tar = BattleGUI.EnemyOneOb;
+            tar = GameObject.Find("EnemyOne").gameObject;
         }
         else if (target == TurnBasedCombatStateMachine.battleStateStartScript.EnemyTwo)
         {
-            tar = BattleGUI.EnemyTwoOb;
+            tar = GameObject.Find("EnemyTwo").gameObject;
         }
         else if (target == TurnBasedCombatStateMachine.battleStateStartScript.EnemyThree)
         {
-            tar = BattleGUI.EnemyThreeOb;
+            tar = GameObject.Find("EnemyThree").gameObject;
         }
         else if (target == TurnBasedCombatStateMachine.battleStateStartScript.MC)
         {
-            tar = BattleGUI.MCOb;
+            tar = GameObject.Find("Mitch").gameObject;
         }
         else if (target == TurnBasedCombatStateMachine.battleStateStartScript.ratKing)
         {
-            tar = BattleGUI.RatKingOb;
+            tar = GameObject.Find("RatKing").gameObject;
         }
         else //(target == TurnBasedCombatStateMachine.battleStateStartScript.nathan)
         {
-            tar = BattleGUI.NathanOb;
+            tar = GameObject.Find("Nathan").gameObject;
         }
 
 
@@ -317,10 +318,51 @@ public class BattleCalculations
         //aDDED THIS SHIT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if(ability.AbilityName == "Gator Bite")
         {
-            abil = BattleGUI.gatorBite;
+
+            GameObject theGatorAttack = GameObject.Find("GatorBite0000").gameObject;
+            GatorBite playerScript = theGatorAttack.GetComponent<GatorBite>();
             Debug.Log("BIG GATOR ATTACK");
-            abil.GetComponent<GatorBite>().getInfo(tar, sour);
+            //tar.transform.position = tar.transform.position + new Vector3(10, 10, 0);
+            playerScript.getInfo(tar, sour, theGatorAttack);
             
+            //abil.GetComponent<GatorBite>().getInfo(tar, sour);
+            
+        }
+        else if(ability.AbilityName == "Rat Throw")
+        {
+            GameObject theAttack = GameObject.Find("RatProjectileTrans").gameObject;
+            RatThrow playerScript = theAttack.GetComponent<RatThrow>();
+            playerScript.getInfo(tar, sour);
+        }
+        else if (ability.AbilityName == "Rat Wall")
+        {
+            GameObject theAttack = GameObject.Find("RatWall0002").gameObject;
+            RatWall playerScript = theAttack.GetComponent<RatWall>();
+            playerScript.getInfo(tar, sour);
+        }
+        else if (ability.AbilityName == "Steal Cat")
+        {
+            GameObject theAttack = GameObject.Find("cat").gameObject;
+            StealCat playerScript = theAttack.GetComponent<StealCat>();
+            playerScript.getInfo(tar, sour);
+        }
+        else if (ability.AbilityName == "Spill Ranch")
+        {
+            GameObject theAttack = GameObject.Find("RatProjectileTrans").gameObject;
+            RatThrow playerScript = theAttack.GetComponent<RatThrow>();
+            playerScript.getInfo(tar, sour);
+        }
+        else if (ability.AbilityName == "Cinder Strike")
+        {
+            GameObject theAttack = GameObject.Find("MitchAttack0008 (1)").gameObject;
+            MitchAttack playerScript = theAttack.GetComponent<MitchAttack>();
+            playerScript.getInfo(tar, sour);
+        }
+        else if (ability.AbilityName == "Box Wine")
+        {
+            GameObject theAttack = GameObject.Find("RedBoxWine").gameObject;
+            BoxWine playerScript = theAttack.GetComponent<BoxWine>();
+            playerScript.getInfo(tar, sour);
         }
         else
         {
