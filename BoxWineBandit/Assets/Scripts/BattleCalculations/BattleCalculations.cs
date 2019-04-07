@@ -158,9 +158,13 @@ public class BattleCalculations
                 }
             }
 
-            
 
 
+
+        }
+        else
+        {
+            BattleGUI.textBoi.text = attacker.CharacterClassName + " missed healing " + defender.CharacterClassName + ".";
         }
     }
 
@@ -175,15 +179,18 @@ public class BattleCalculations
             if (attacker.CritChance > randomNumber)
             {
                 defender.Health -= attacker.Power;
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " critically damaged " + defender.CharacterClassName + " for " + (attacker.Power) + " damage.";
             }
             else
             {
                 defender.Health -= attacker.Power - defender.Defense;
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " damaged " + defender.CharacterClassName + " for " + (attacker.Power - defender.Defense) + " damage.";
             }
             
             if (defender.Health < 1)
             {
                 defender.Defeated = true;
+                BattleGUI.textBoi.text += " The hit caused " + defender.CharacterClassName + " to be defeated";
             }
 
             
@@ -197,7 +204,7 @@ public class BattleCalculations
         }
         else
         {
-            Debug.Log("Miss");
+            BattleGUI.textBoi.text = attacker.CharacterClassName + " missed damaging " + defender.CharacterClassName + ".";
         }
 
 
@@ -213,22 +220,38 @@ public class BattleCalculations
             if (attacker.CritChance > randomNumber)
             {
                 defender.HitChance -= attacker.Power * 4;
-                if(defender.HitChance < 30)
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " critically reduced " + defender.CharacterClassName + "'s hitchance";
+                if (defender.HitChance < 15)
                 {
-                    defender.HitChance = 30;
+                    defender.HitChance = 15;
+                    BattleGUI.textBoi.text += " and it won't go any lower.";
+                }
+                else
+                {
+                    BattleGUI.textBoi.text += ".";
                 }
             }
             else
             {
-                defender.HitChance -= attacker.Power - defender.Defense * 4;
-                if (defender.HitChance < 25)
+                defender.HitChance -= (attacker.Power - defender.Defense) * 4;
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " reduced " + defender.CharacterClassName + "'s hitchance";
+                if (defender.HitChance < 15)
                 {
-                    defender.HitChance = 25;
+                    defender.HitChance = 15;
+                    BattleGUI.textBoi.text += " and it won't go any lower.";
+                }
+                else
+                {
+                    BattleGUI.textBoi.text += ".";
                 }
             }
 
 
 
+        }
+        else
+        {
+            BattleGUI.textBoi.text = attacker.CharacterClassName + " missed reducing " + defender.CharacterClassName + "'s hitchance.";
         }
 
     }
@@ -243,17 +266,25 @@ public class BattleCalculations
             
             defender.Defense += 1;
             defender.HitChance -= 15;
+            BattleGUI.textBoi.text = attacker.CharacterClassName + " increased " + defender.CharacterClassName + "'s defense why reducing hitchance";
             if (defender.HitChance < 25)
             {
                 defender.HitChance = 25;
                 defender.Defense -= 1;
+                BattleGUI.textBoi.text += " and it won't change anymore.";
             }
-            
-
+            else
+            {
+                BattleGUI.textBoi.text += ".";
+            }
 
 
         }
-        
+        else
+        {
+            BattleGUI.textBoi.text = attacker.CharacterClassName + " missed buffing " + defender.CharacterClassName + ".";
+        }
+
 
     }
 
