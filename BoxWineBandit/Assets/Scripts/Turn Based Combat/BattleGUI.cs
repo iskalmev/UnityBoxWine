@@ -21,6 +21,10 @@ public class BattleGUI : MonoBehaviour
     public static UnityEngine.GameObject RatKingOb;
     public static UnityEngine.GameObject NathanOb;
 
+    public static UnityEngine.GameObject gatorBite;
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +45,8 @@ public class BattleGUI : MonoBehaviour
         RatKingOb = transform.Find("RatKingImage").GetComponent<UnityEngine.GameObject>();
         NathanOb = transform.Find("NathanImage").GetComponent<UnityEngine.GameObject>();
 
-    }
+        gatorBite = transform.Find("GatorBite0000").GetComponent<UnityEngine.GameObject>();
+}
 
     // Update is called once per frame
     void Update()

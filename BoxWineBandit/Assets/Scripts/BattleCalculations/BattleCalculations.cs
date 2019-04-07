@@ -24,8 +24,9 @@ public class BattleCalculations
             CalculateAbilityMiss(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter);
         }
 
+        Debug.Log("before Anim");
         playAnimation(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter, usedAbility);
-        
+        Debug.Log("afterAnim");
 
     }
 

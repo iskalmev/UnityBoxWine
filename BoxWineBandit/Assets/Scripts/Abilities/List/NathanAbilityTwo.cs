@@ -13,8 +13,8 @@ public class NathanAbilityTwo : BaseAbility
         AbilityType = 4;
     }
 
-    public void UseAbility(GameObject t, GameObject s)
+    public override void UseAbility(GameObject t, GameObject s)
     {
-        
+        Debug.Log("spill ranch");
     }
 }

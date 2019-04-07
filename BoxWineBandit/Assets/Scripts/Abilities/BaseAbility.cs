@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseAbility
+abstract public class BaseAbility
 {
 
     private string abilityName;
@@ -27,10 +27,7 @@ public class BaseAbility
         set { abilityDesc = value; }
     }
 
-    public void UseAbility(GameObject t, GameObject s)
-    {
-
-    }
+    public abstract void UseAbility(GameObject t, GameObject s);
 
 
 }

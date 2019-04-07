@@ -13,7 +13,7 @@ public class BoxWineBanditAbilityTwo : BaseAbility
         AbilityType = 2;
     }
 
-    public void UseAbility(GameObject t, GameObject s)
+    public override void UseAbility(GameObject t, GameObject s)
     {
         BoxWine boxy = new BoxWine();
         boxy.getInfo(t, s);

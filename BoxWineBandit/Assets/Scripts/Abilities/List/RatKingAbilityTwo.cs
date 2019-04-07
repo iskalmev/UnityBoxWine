@@ -13,9 +13,8 @@ public class RatKingAbilityTwo : BaseAbility
         AbilityType = 3;
     }
 
-    public void UseAbility(GameObject t, GameObject s)
+    public override void UseAbility(GameObject t, GameObject s)
     {
-        RatWall ratwal = new RatWall();
-        ratwal.getInfo(t, s);
+        Debug.Log("rat wall");
     }
 }

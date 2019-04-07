@@ -13,9 +13,9 @@ public class BoxWineBanditAbilityOne : BaseAbility
         AbilityType = 1;
     }
 
-    public void UseAbility(GameObject t, GameObject s)
+    public override void UseAbility(GameObject t, GameObject s)
     {
-        MitchAttack cinder = new MitchAttack();
-        cinder.getInfo(t, s);
+        Debug.Log("mitcj attack");
+        
     }
 }

@@ -13,9 +13,8 @@ public class NathanAbilityOne : BaseAbility
         AbilityType = 1;
     }
 
-    public void UseAbility(GameObject t, GameObject s)
+    public override void UseAbility(GameObject t, GameObject s)
     {
-        StealCat catst = new StealCat();
-        catst.getInfo(t, s);
+        Debug.Log("steal cat");
     }
 }

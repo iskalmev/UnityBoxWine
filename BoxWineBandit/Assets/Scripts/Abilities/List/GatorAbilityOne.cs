@@ -13,10 +13,9 @@ public class GatorAbilityOne : BaseAbility
         AbilityType = 1;
     }
 
-    public void UseAbility(GameObject t, GameObject s)
+    public override void UseAbility(GameObject t, GameObject s)
     {
-        GatorBite gatbit = new GatorBite();
-        gatbit.getInfo(t, s);
+        Debug.Log("gatorBite");
     }
     
 }

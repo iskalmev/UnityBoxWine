@@ -13,10 +13,9 @@ public class RatKingAbilityOne : BaseAbility
         AbilityType = 1;
     }
 
-    public void UseAbility(GameObject t, GameObject s)
+    public override void UseAbility(GameObject t, GameObject s)
     {
-        RatThrow ratthrow = new RatThrow();
-        ratthrow.getInfo(t, s);
+        Debug.Log("rat throw");
     }
 
 }
