@@ -73,6 +73,7 @@ public class BattleGUI : MonoBehaviour
 
     private void OnGUI()
     {
+        if()
         if (TurnBasedCombatStateMachine.currentState == TurnBasedCombatStateMachine.BattleStates.PLAYERCHOICE)
         {
             DisplayPlayerChoice();

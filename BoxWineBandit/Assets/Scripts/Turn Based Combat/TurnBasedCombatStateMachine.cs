@@ -10,6 +10,7 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
     public static BaseClass currentCharacter;
     public static BaseClass targetCharacter;
     public static BattleCalculations battleCalcScript = new BattleCalculations();
+    public static int fightCount = 1;
 
 
     public enum BattleStates
@@ -45,7 +46,7 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
         {
             case (BattleStates.START):
 
-                battleStateStartScript.PrepareBattle();
+                battleStateStartScript.PrepareBattle(fightCount);
                 currentState = BattleStates.PLAYERCHOICE;
                 break;
             case (BattleStates.PLAYERCHOICE):
@@ -133,7 +134,10 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
                     BattleCalculations.playAnimation(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter, TurnBasedCombatStateMachine.usedAbilty);
 
                 }
-
+                if (WinLossCheck() == 1)
+                {
+                    currentState = BattleStates.LOSE;
+                }
 
                 break;
             case (BattleStates.ENEMYTWOCHOICE):
@@ -151,6 +155,10 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
                     BattleCalculations.playAnimation(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter, TurnBasedCombatStateMachine.usedAbilty);
 
                 }
+                if (WinLossCheck() == 1)
+                {
+                    currentState = BattleStates.LOSE;
+                }
 
                 break;
             case (BattleStates.ENEMYTHREECHOICE):
@@ -167,6 +175,10 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
                     currentState = BattleStates.ENEMYANIMATE;
                     BattleCalculations.playAnimation(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter, TurnBasedCombatStateMachine.usedAbilty);
 
+                }
+                if (WinLossCheck() == 1)
+                {
+                    currentState = BattleStates.LOSE;
                 }
 
                 break;
@@ -204,9 +216,14 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
                 break;
             case (BattleStates.LOSE):
                 Debug.Log("Lose");
+                battleStateStartScript.PrepareBattle(fightCount);
+                currentState = BattleStates.PLAYERCHOICE;
                 break;
             case (BattleStates.WIN):
                 Debug.Log("Win");
+                fightCount += 1;
+                battleStateStartScript.PrepareBattle(fightCount);
+                currentState = BattleStates.PLAYERCHOICE;
                 break;
 
 

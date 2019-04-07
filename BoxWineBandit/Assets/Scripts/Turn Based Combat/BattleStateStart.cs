@@ -13,27 +13,63 @@ public class BattleStateStart
     public BaseClass nathan;
 
 
-    public void PrepareBattle()
+    public void PrepareBattle(int fight)
     {
-        CreateMC();
-        CreateNewEnemy();
+
+        if(fight == 1)
+        {
+            CreateFightOne();
+        }
+        else if(fight == 2)
+        {
+            CreateFightTwo();
+        }
+        else if (fight == 3)
+        {
+            CreateFightThree();
+        }
 
 
     }
 
-    private void CreateMC()
+
+    private void CreateFightOne()
     {
         MC = new BaseBoxWineBandit();
         ratKing = new BaseRatKing();
         nathan = new BaseNathan();
-    }
-
-    private void CreateNewEnemy()
-    {
         EnemyOne = new BaseGator();
         EnemyTwo = new BaseGator();
         EnemyThree = new BaseGator();
+
+        
     }
+
+    private void CreateFightTwo()
+    {
+        MC = new BaseBoxWineBandit();
+        ratKing = new BaseRatKing();
+        nathan = new BaseNathan();
+        EnemyOne = new BaseGator();
+        EnemyTwo = new BaseHurricane();
+        EnemyThree = new BaseGator();
+
+        GameObject.Find("EnemyTwo").GetComponent<SpriteRenderer>().sprite = GameObject.Find("HurricaneHolder").GetComponent<SpriteRenderer>().sprite;
+    }
+
+    private void CreateFightThree()
+    {
+        MC = new BaseBoxWineBandit();
+        ratKing = new BaseRatKing();
+        nathan = new BaseNathan();
+        EnemyOne = new BaseGator();
+        EnemyTwo = new BaseBigMitch();
+        EnemyThree = new BaseGator();
+
+        GameObject.Find("EnemyTwo").GetComponent<SpriteRenderer>().sprite = GameObject.Find("BigMitchHolder").GetComponent<SpriteRenderer>().sprite;
+    }
+
+
 
     //private void OnGUI()
     //{

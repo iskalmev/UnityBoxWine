@@ -371,12 +371,17 @@ public class BattleCalculations
         }
 
 
-
-
         
-       
+        
+
+
+
+
+
 
     }
+
+    
 
 
 }
