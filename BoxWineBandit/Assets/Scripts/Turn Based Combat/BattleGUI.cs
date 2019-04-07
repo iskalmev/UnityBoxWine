@@ -56,6 +56,10 @@ public class BattleGUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
+
+
         BattleGUI.EnemyOneImage.fillAmount = (float)(TurnBasedCombatStateMachine.battleStateStartScript.EnemyOne.Health) / (float)(TurnBasedCombatStateMachine.battleStateStartScript.EnemyOne.MaxHealth);
         BattleGUI.EnemyTwoImage.fillAmount = (float)(TurnBasedCombatStateMachine.battleStateStartScript.EnemyTwo.Health) / (float)(TurnBasedCombatStateMachine.battleStateStartScript.EnemyTwo.MaxHealth);
         BattleGUI.EnemyThreeImage.fillAmount = (float)(TurnBasedCombatStateMachine.battleStateStartScript.EnemyThree.Health) / (float)(TurnBasedCombatStateMachine.battleStateStartScript.EnemyThree.MaxHealth);

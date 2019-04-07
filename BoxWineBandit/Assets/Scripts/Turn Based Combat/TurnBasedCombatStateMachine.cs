@@ -9,7 +9,7 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
     public static BaseAbility usedAbilty;
     public static BaseClass currentCharacter;
     public static BaseClass targetCharacter;
-    private BattleCalculations battleCalcScript = new BattleCalculations();
+    public static BattleCalculations battleCalcScript = new BattleCalculations();
 
 
     public enum BattleStates
@@ -87,15 +87,21 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
                 }
                 else if (currentCharacter == battleStateStartScript.MC)
                 {
-                    currentState = BattleStates.RATCHOICE;
+                    currentState = BattleStates.ENEMYANIMATE;
+                    BattleCalculations.playAnimation(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter, TurnBasedCombatStateMachine.usedAbilty);
+
                 }
                 else if (currentCharacter == battleStateStartScript.ratKing)
                 {
-                    currentState = BattleStates.NATHANCHOICE;
+                    currentState = BattleStates.ENEMYANIMATE;
+                    BattleCalculations.playAnimation(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter, TurnBasedCombatStateMachine.usedAbilty);
+
                 }
                 else if (currentCharacter == battleStateStartScript.nathan)
                 {
-                    currentState = BattleStates.ENEMYONECHOICE;
+                    currentState = BattleStates.ENEMYANIMATE;
+                    BattleCalculations.playAnimation(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter, TurnBasedCombatStateMachine.usedAbilty);
+
                 }
                 else if (currentCharacter == battleStateStartScript.EnemyOne)
                 {
@@ -122,23 +128,30 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
                 else
                 {
                     battleCalcScript.EnemyAi(currentCharacter);
+                    usedAbilty = battleStateStartScript.EnemyOne.AbilityOne;
                     currentState = BattleStates.ENEMYTWOCHOICE;
+                    BattleCalculations.playAnimation(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter, TurnBasedCombatStateMachine.usedAbilty);
+
                 }
-                
+
 
                 break;
             case (BattleStates.ENEMYTWOCHOICE):
                 currentCharacter = battleStateStartScript.EnemyTwo;
                 if (currentCharacter.Defeated)
                 {
-                    currentState = BattleStates.ENEMYTHREECHOICE;
+                    currentState = BattleStates.ENEMYANIMATE;
                 }
                 else
                 {
                     battleCalcScript.EnemyAi(currentCharacter);
-                     currentState = BattleStates.ENEMYTHREECHOICE;
+                    usedAbilty = battleStateStartScript.EnemyTwo.AbilityOne;
+
+                    currentState = BattleStates.ENEMYANIMATE;
+                    BattleCalculations.playAnimation(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter, TurnBasedCombatStateMachine.usedAbilty);
+
                 }
-                
+
                 break;
             case (BattleStates.ENEMYTHREECHOICE):
                 currentCharacter = battleStateStartScript.EnemyThree;
@@ -149,12 +162,45 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
                 else
                 {
                     battleCalcScript.EnemyAi(currentCharacter);
+                    usedAbilty = battleStateStartScript.EnemyThree.AbilityOne;
 
-                    currentState = BattleStates.PLAYERCHOICE;
+                    currentState = BattleStates.ENEMYANIMATE;
+                    BattleCalculations.playAnimation(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter, TurnBasedCombatStateMachine.usedAbilty);
+
                 }
-                
+
                 break;
             case (BattleStates.ENEMYANIMATE):
+
+                if (currentCharacter == battleStateStartScript.MC)
+                {
+                    currentState = BattleStates.RATCHOICE;
+
+                }
+                else if (currentCharacter == battleStateStartScript.ratKing)
+                {
+                    currentState = BattleStates.NATHANCHOICE;
+
+                }
+                else if (currentCharacter == battleStateStartScript.nathan)
+                {
+                    currentState = BattleStates.ENEMYONECHOICE;
+
+                }
+                else if (currentCharacter == battleStateStartScript.EnemyOne)
+                {
+                    currentState = BattleStates.ENEMYTWOCHOICE;
+                }
+                else if (currentCharacter == battleStateStartScript.EnemyTwo)
+                {
+                    currentState = BattleStates.ENEMYTHREECHOICE;
+                }
+                else if (currentCharacter == battleStateStartScript.EnemyThree)
+                {
+                    currentState = BattleStates.PLAYERCHOICE;
+                }
+
+
                 break;
             case (BattleStates.LOSE):
                 Debug.Log("Lose");

@@ -24,9 +24,9 @@ public class BattleCalculations
             CalculateAbilityMiss(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter);
         }
 
-        Debug.Log("before Anim");
-        playAnimation(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter, usedAbility);
-        Debug.Log("afterAnim");
+        //Debug.Log("before Anim");
+        //playAnimation(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter, usedAbility);
+        //Debug.Log("afterAnim");
 
     }
 
@@ -41,19 +41,22 @@ public class BattleCalculations
                 if (TurnBasedCombatStateMachine.battleStateStartScript.ratKing.Defeated)
                 {
                     CalculateAbilityDamage(enemy, TurnBasedCombatStateMachine.battleStateStartScript.nathan);
-                    playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.nathan, enemy.AbilityOne);
+                    TurnBasedCombatStateMachine.targetCharacter = TurnBasedCombatStateMachine.battleStateStartScript.nathan;
+                    //playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.nathan, enemy.AbilityOne);
                 }
                 else
                 {
                     CalculateAbilityDamage(enemy, TurnBasedCombatStateMachine.battleStateStartScript.ratKing);
-                    playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.ratKing, enemy.AbilityOne);
+                    TurnBasedCombatStateMachine.targetCharacter = TurnBasedCombatStateMachine.battleStateStartScript.ratKing;
+                    //playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.ratKing, enemy.AbilityOne);
                 }
 
             }
             else
             {
                 CalculateAbilityDamage(enemy, TurnBasedCombatStateMachine.battleStateStartScript.MC);
-                playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.MC, enemy.AbilityOne);
+                TurnBasedCombatStateMachine.targetCharacter = TurnBasedCombatStateMachine.battleStateStartScript.MC;
+                //playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.MC, enemy.AbilityOne);
 
 
             }
@@ -66,20 +69,23 @@ public class BattleCalculations
                 if (TurnBasedCombatStateMachine.battleStateStartScript.nathan.Defeated)
                 {
                     CalculateAbilityDamage(enemy, TurnBasedCombatStateMachine.battleStateStartScript.MC);
-                    playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.MC, enemy.AbilityOne);
+                    TurnBasedCombatStateMachine.targetCharacter = TurnBasedCombatStateMachine.battleStateStartScript.MC;
+                    //playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.MC, enemy.AbilityOne);
 
                 }
                 else
                 {
                     CalculateAbilityDamage(enemy, TurnBasedCombatStateMachine.battleStateStartScript.nathan);
-                    playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.nathan, enemy.AbilityOne);
+                    TurnBasedCombatStateMachine.targetCharacter = TurnBasedCombatStateMachine.battleStateStartScript.nathan;
+                    //playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.nathan, enemy.AbilityOne);
                 }
 
             }
             else
             {
                 CalculateAbilityDamage(enemy, TurnBasedCombatStateMachine.battleStateStartScript.ratKing);
-                playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.ratKing, enemy.AbilityOne);
+                TurnBasedCombatStateMachine.targetCharacter = TurnBasedCombatStateMachine.battleStateStartScript.ratKing;
+                //playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.ratKing, enemy.AbilityOne);
 
             }
 
@@ -91,13 +97,15 @@ public class BattleCalculations
                 if (TurnBasedCombatStateMachine.battleStateStartScript.MC.Defeated)
                 {
                     CalculateAbilityDamage(enemy, TurnBasedCombatStateMachine.battleStateStartScript.ratKing);
-                    playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.ratKing, enemy.AbilityOne);
+                    TurnBasedCombatStateMachine.targetCharacter = TurnBasedCombatStateMachine.battleStateStartScript.ratKing;
+                    //playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.ratKing, enemy.AbilityOne);
 
                 }
                 else
                 {
                     CalculateAbilityDamage(enemy, TurnBasedCombatStateMachine.battleStateStartScript.MC);
-                    playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.MC, enemy.AbilityOne);
+                    TurnBasedCombatStateMachine.targetCharacter = TurnBasedCombatStateMachine.battleStateStartScript.MC;
+                    //playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.MC, enemy.AbilityOne);
 
 
                 }
@@ -106,7 +114,8 @@ public class BattleCalculations
             else
             {
                 CalculateAbilityDamage(enemy, TurnBasedCombatStateMachine.battleStateStartScript.nathan);
-                playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.nathan, enemy.AbilityOne);
+                TurnBasedCombatStateMachine.targetCharacter = TurnBasedCombatStateMachine.battleStateStartScript.nathan;
+                //playAnimation(enemy, TurnBasedCombatStateMachine.battleStateStartScript.nathan, enemy.AbilityOne);
             }
 
         }
@@ -241,7 +250,7 @@ public class BattleCalculations
     }
 
 
-    private void playAnimation(BaseClass source, BaseClass target, BaseAbility ability)
+    public static void playAnimation(BaseClass source, BaseClass target, BaseAbility ability)
     {
         UnityEngine.GameObject sour;
         UnityEngine.GameObject tar;
