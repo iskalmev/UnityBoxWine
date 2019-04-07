@@ -44,7 +44,7 @@ public class GatorBite : MonoBehaviour
 
     public void getInfo(GameObject t, GameObject s)
     {
-
+        Debug.Log("GATOR");
         target = t;
         source = s;
         transform.position = target.transform.position + new Vector3(0, 0, 1);

@@ -25,6 +25,11 @@ public class BattleGUI : MonoBehaviour
 
 
 
+    //THIS IS WHat I CHANGED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public GameObject mitchAttack, mitchWine, ratThrown, ratWall, nathanSteal, nathanRanch, gatorAttack;
+
+
+
 
     // Start is called before the first frame update
     void Start()

@@ -245,6 +245,9 @@ public class BattleCalculations
     {
         UnityEngine.GameObject sour;
         UnityEngine.GameObject tar;
+        //ADDED THIS VARIABLE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        GameObject abil;
+
 
         if(source == TurnBasedCombatStateMachine.battleStateStartScript.EnemyOne)
         {
@@ -300,8 +303,27 @@ public class BattleCalculations
             tar = BattleGUI.NathanOb;
         }
 
-        ability.UseAbility(tar, sour);
 
+
+        //aDDED THIS SHIT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        if(ability.AbilityName == "Gator Bite")
+        {
+            abil = BattleGUI.gatorBite;
+            Debug.Log("BIG GATOR ATTACK");
+            abil.GetComponent<GatorBite>().getInfo(tar, sour);
+            
+        }
+        else
+        {
+            ability.UseAbility(tar, sour);
+            Debug.Log("BIG LAME ATTACK");
+        }
+
+
+
+
+        
+       
 
     }
 
