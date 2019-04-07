@@ -257,7 +257,7 @@ public class BattleCalculations
 
     }
 
-
+    
     public static void playAnimation(BaseClass source, BaseClass target, BaseAbility ability)
     {
         UnityEngine.GameObject sour;
@@ -332,8 +332,9 @@ public class BattleCalculations
             //tar.transform.position = tar.transform.position + new Vector3(10, 10, 0);
             playerScript.getInfo(tar, sour, theGatorAttack);
             
+
             //abil.GetComponent<GatorBite>().getInfo(tar, sour);
-            
+
         }
         else if(ability.AbilityName == "Rat Throw")
         {
@@ -371,6 +372,18 @@ public class BattleCalculations
             BoxWine playerScript = theAttack.GetComponent<BoxWine>();
             playerScript.getInfo(tar, sour);
         }
+        else if (ability.AbilityName == "Airblast")
+        {
+            GameObject theAttack = GameObject.Find("BasicWindAttack0003").gameObject;
+            BasicWindAttack playerScript = theAttack.GetComponent<BasicWindAttack>();
+            playerScript.getInfo(tar, sour);
+        }
+        else if (ability.AbilityName == "Stomp")
+        {
+            GameObject theAttack = GameObject.Find("boot").gameObject;
+            Boot playerScript = theAttack.GetComponent<Boot>();
+            playerScript.getInfo(tar, sour);
+        }
         else
         {
             ability.UseAbility(tar, sour);
@@ -388,7 +401,7 @@ public class BattleCalculations
 
     }
 
-    
 
+ 
 
 }
