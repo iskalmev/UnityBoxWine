@@ -51,8 +51,17 @@ public class RatThrow : MonoBehaviour
         SpriteRenderer renderer = target.GetComponent<SpriteRenderer>();
 
         renderer.material.color = damagecolor;
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.2f);
         renderer.material.color = Color.white;
+        yield return new WaitForSeconds(.2f);
+        renderer.material.color = damagecolor;
+        yield return new WaitForSeconds(.2f);
+        renderer.material.color = Color.white;
+        yield return new WaitForSeconds(.2f);
+        renderer.material.color = damagecolor;
+        yield return new WaitForSeconds(.2f);
+        renderer.material.color = Color.white;
+
         damaged = true;
     }
 

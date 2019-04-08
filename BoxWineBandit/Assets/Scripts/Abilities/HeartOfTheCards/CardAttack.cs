@@ -53,6 +53,14 @@ public class CardAttack : MonoBehaviour
         renderer.material.color = damagecolor;
         yield return new WaitForSeconds(.1f);
         renderer.material.color = Color.white;
+        yield return new WaitForSeconds(.1f);
+        renderer.material.color = damagecolor;
+        yield return new WaitForSeconds(.1f);
+        renderer.material.color = Color.white;
+        yield return new WaitForSeconds(.1f);
+        renderer.material.color = damagecolor;
+        yield return new WaitForSeconds(.1f);
+        renderer.material.color = Color.white;
         damaged = true;
     }
 
