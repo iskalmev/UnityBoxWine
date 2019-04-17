@@ -62,6 +62,7 @@
 				
                 UNITY_TRANSFER_FOG(o,o.vertex);
 				o.col = v.col * _ColorA;
+				//multiplies the vertex color to the main color
 				o.col = o.col * v.col.a;
                 return o;
             }
@@ -69,9 +70,16 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
+				//distorts the secondary texture on the x axis
 				fixed distort1 = tex2D(_DistortTex, fixed2(i.uv.x + (_Time.y * 1.5), i.uv.y)).a;
+
+				//distorts the secondary texture on the y axis
 				fixed distort2 = tex2D(_DistortTex, fixed2(i.uv.x, i.uv.y + (_Time.y * 1.5))).a;
+
+				//lerps the two distortions together
 				fixed2 mainDistort = lerp(i.uv, fixed2(distort1, distort2), 0.15);
+
+				//distorts the main texture with the lerped distortions
 				fixed4 maintex = tex2D(_MainTex, mainDistort) * i.col;
 				
                 // apply fog

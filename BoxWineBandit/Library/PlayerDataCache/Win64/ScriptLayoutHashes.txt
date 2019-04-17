@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/noskill/Downloads/BoxWineBandit.exe
+D:/School Projects/Alt Game Dev/Build/BoxWineBandit.exe
 SceneListBegin?
 Assets/Scenes/CombatTesting.unity
 SceneListEnd?
