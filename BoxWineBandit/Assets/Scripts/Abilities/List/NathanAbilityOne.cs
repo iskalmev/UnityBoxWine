@@ -9,8 +9,8 @@ public class NathanAbilityOne : BaseAbility
     public NathanAbilityOne()
     {
         AbilityName = "Steal Cat";
-        AbilityDesc = "Steal Target's Cat";
-        AbilityType = 1;
+        AbilityDesc = "Damage One Target\nSelf Heal";
+        AbilityType = 5;
     }
 
     public override void UseAbility(GameObject t, GameObject s)

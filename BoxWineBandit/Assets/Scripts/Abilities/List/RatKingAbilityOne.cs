@@ -9,7 +9,7 @@ public class RatKingAbilityOne : BaseAbility
     public RatKingAbilityOne()
     {
         AbilityName = "Rat Throw";
-        AbilityDesc = "ThrowsRat";
+        AbilityDesc = "Damage One Enemy";
         AbilityType = 1;
     }
 

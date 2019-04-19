@@ -28,6 +28,14 @@ public class BattleStateStart
         {
             CreateFightThree();
         }
+        else if (fight == 4)
+        {
+            CreateFightFour();
+        }
+        else if (fight == 5)
+        {
+            CreateFightFive();
+        }
 
 
     }
@@ -67,6 +75,31 @@ public class BattleStateStart
         EnemyThree = new BaseGator();
 
         GameObject.Find("EnemyTwo").GetComponent<SpriteRenderer>().sprite = GameObject.Find("BigMitchHolder").GetComponent<SpriteRenderer>().sprite;
+    }
+
+    private void CreateFightFour()
+    {
+        MC = new BaseBoxWineBandit();
+        ratKing = new BaseRatKing();
+        nathan = new BaseNathan();
+        EnemyOne = new BaseGator();
+        EnemyTwo = new BaseMadoka();
+        EnemyThree = new BaseGator();
+
+        GameObject.Find("EnemyTwo").GetComponent<SpriteRenderer>().sprite = GameObject.Find("MadokaHolder").GetComponent<SpriteRenderer>().sprite;
+        
+    }
+
+    private void CreateFightFive()
+    {
+        MC = new BaseBoxWineBandit();
+        ratKing = new BaseRatKing();
+        nathan = new BaseNathan();
+        EnemyOne = new BaseGator();
+        EnemyTwo = new BaseHeart();
+        EnemyThree = new BaseGator();
+
+        GameObject.Find("EnemyTwo").GetComponent<SpriteRenderer>().sprite = GameObject.Find("HeartHolder").GetComponent<SpriteRenderer>().sprite;
     }
 
 

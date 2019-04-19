@@ -9,7 +9,7 @@ public class BoxWineBanditAbilityOne : BaseAbility
     public BoxWineBanditAbilityOne()
     {
         AbilityName = "Cinder Strike";
-        AbilityDesc = "Flaming Slashes";
+        AbilityDesc = "Damage One Enemy";
         AbilityType = 1;
     }
 

@@ -9,7 +9,7 @@ public class NathanAbilityTwo : BaseAbility
     public NathanAbilityTwo()
     {
         AbilityName = "Spill Ranch";
-        AbilityDesc = "Spills Ranch in the Battlefield";
+        AbilityDesc = "Reduce Enemy Accuracy";
         AbilityType = 4;
     }
 

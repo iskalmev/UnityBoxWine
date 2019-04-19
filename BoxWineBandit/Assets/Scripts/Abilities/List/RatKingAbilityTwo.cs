@@ -9,7 +9,7 @@ public class RatKingAbilityTwo : BaseAbility
     public RatKingAbilityTwo()
     {
         AbilityName = "Rat Wall";
-        AbilityDesc = "Summon a Wall of Rats to Block a attack";
+        AbilityDesc = "Buff Ally Defense\nMinor Accuracy Reduction";
         AbilityType = 3;
     }
 

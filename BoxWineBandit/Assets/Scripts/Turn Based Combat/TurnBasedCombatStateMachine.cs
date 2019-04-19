@@ -11,6 +11,7 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
     public static BaseClass targetCharacter;
     public static BattleCalculations battleCalcScript = new BattleCalculations();
     public static int fightCount = 1;
+    public static int storyCount = 1;
 
     public bool attacking = false;
     public bool isBigMitch = false;
@@ -18,6 +19,7 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
 
     public enum BattleStates
     {
+        STORY,
         START,
         PLAYERCHOICE,
         RATCHOICE,
@@ -39,7 +41,7 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
     void Start()
     {
         
-        currentState = BattleStates.START;
+        currentState = BattleStates.STORY;
         
         attacking = false;
     }
@@ -75,6 +77,57 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
             //Debug.Log(currentState);
             switch (currentState)
             {
+                case (BattleStates.STORY):
+                    if (storyCount == 1)
+                    {
+                        if (Story1Toggle.complete)
+                        {
+                            currentState = BattleStates.START;
+                        }
+                    }   
+                    else if (storyCount == 2)
+                    {
+                    if (Story2Toggle.complete)
+                    {
+                        battleStateStartScript.PrepareBattle(fightCount);
+                        currentState = BattleStates.PLAYERCHOICE;   
+                    }
+                    }
+                else if (storyCount == 3)
+                {
+                    if (Story3Toggle.complete)
+                    {
+                        battleStateStartScript.PrepareBattle(fightCount);
+                        currentState = BattleStates.PLAYERCHOICE;
+                    }
+                }
+                else if (storyCount == 4)
+                {
+                    if (Story4Toggle.complete)
+                    {
+                        battleStateStartScript.PrepareBattle(fightCount);
+                        currentState = BattleStates.PLAYERCHOICE;
+                    }
+                }
+                else if (storyCount == 5)
+                {
+                    if (Story5Toggle.complete)
+                    {
+                        battleStateStartScript.PrepareBattle(fightCount);
+                        currentState = BattleStates.PLAYERCHOICE;
+                    }
+                }
+                //if (storyCount == 6)
+                //{
+                //    if (Story6Toggle.complete)
+                //    {
+                //        battleStateStartScript.PrepareBattle(fightCount);
+                //        currentState = BattleStates.PLAYERCHOICE;
+                //    }
+                //}
+
+
+                break;
                 case (BattleStates.START):
 
                     battleStateStartScript.PrepareBattle(fightCount);
@@ -294,6 +347,7 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
                     break;
                 case (BattleStates.WIN):
                     Debug.Log("Win");
+                    storyCount += 1;
                     fightCount += 1;
                     if(fightCount == 3)
                      {
@@ -303,8 +357,8 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
                     {
                         isBigMitch = false;
                     }
-                    battleStateStartScript.PrepareBattle(fightCount);
-                    currentState = BattleStates.PLAYERCHOICE;
+                    
+                    currentState = BattleStates.STORY;
                     break;
             }
        

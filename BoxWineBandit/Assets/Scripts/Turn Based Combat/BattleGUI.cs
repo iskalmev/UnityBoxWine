@@ -92,7 +92,7 @@ public class BattleGUI : MonoBehaviour
         }
         else if (TurnBasedCombatStateMachine.currentState == TurnBasedCombatStateMachine.BattleStates.CHOOSETARGET)
         {
-            if (TurnBasedCombatStateMachine.usedAbilty.AbilityType == 1 || TurnBasedCombatStateMachine.usedAbilty.AbilityType == 4)
+            if (TurnBasedCombatStateMachine.usedAbilty.AbilityType == 1 || TurnBasedCombatStateMachine.usedAbilty.AbilityType == 4 || TurnBasedCombatStateMachine.usedAbilty.AbilityType == 5)
             {
                 DisplayTargetChoice();
             }
@@ -111,12 +111,14 @@ public class BattleGUI : MonoBehaviour
     private void DisplayPlayerChoice()
     {
         
-        if (GUI.Button(new Rect(Screen.width/2-165, Screen.height - 50, 150, 30), TurnBasedCombatStateMachine.battleStateStartScript.MC.AbilityOne.AbilityName))
+        if (GUI.Button(new Rect(Screen.width/2-185, Screen.height - 95, 170, 65),
+            (TurnBasedCombatStateMachine.battleStateStartScript.MC.AbilityOne.AbilityName + "\n" + TurnBasedCombatStateMachine.battleStateStartScript.MC.AbilityOne.AbilityDesc)))
         {
             TurnBasedCombatStateMachine.usedAbilty = TurnBasedCombatStateMachine.battleStateStartScript.MC.AbilityOne;
             TurnBasedCombatStateMachine.currentState = TurnBasedCombatStateMachine.BattleStates.CHOOSETARGET;
         }
-        if (GUI.Button(new Rect(Screen.width / 2 + 15, Screen.height - 50, 150, 30), TurnBasedCombatStateMachine.battleStateStartScript.MC.AbilityTwo.AbilityName))
+        if (GUI.Button(new Rect(Screen.width / 2 + 35, Screen.height - 95, 170, 65),
+            (TurnBasedCombatStateMachine.battleStateStartScript.MC.AbilityTwo.AbilityName + "\n" + TurnBasedCombatStateMachine.battleStateStartScript.MC.AbilityTwo.AbilityDesc)))
         {
             TurnBasedCombatStateMachine.usedAbilty = TurnBasedCombatStateMachine.battleStateStartScript.MC.AbilityTwo;
             TurnBasedCombatStateMachine.currentState = TurnBasedCombatStateMachine.BattleStates.CHOOSETARGET;
@@ -126,12 +128,14 @@ public class BattleGUI : MonoBehaviour
     private void DisplayRatChoice()
     {
 
-        if (GUI.Button(new Rect(Screen.width / 2 - 165, Screen.height - 50, 150, 30), TurnBasedCombatStateMachine.battleStateStartScript.ratKing.AbilityOne.AbilityName))
+        if (GUI.Button(new Rect(Screen.width / 2 - 185, Screen.height - 95, 170, 65),
+            (TurnBasedCombatStateMachine.battleStateStartScript.ratKing.AbilityOne.AbilityName + "\n" + TurnBasedCombatStateMachine.battleStateStartScript.ratKing.AbilityOne.AbilityDesc)))
         {
             TurnBasedCombatStateMachine.usedAbilty = TurnBasedCombatStateMachine.battleStateStartScript.ratKing.AbilityOne;
             TurnBasedCombatStateMachine.currentState = TurnBasedCombatStateMachine.BattleStates.CHOOSETARGET;
         }
-        if (GUI.Button(new Rect(Screen.width / 2 + 15, Screen.height - 50, 150, 30), TurnBasedCombatStateMachine.battleStateStartScript.ratKing.AbilityTwo.AbilityName))
+        if (GUI.Button(new Rect(Screen.width / 2 + 35, Screen.height - 95, 170, 65),
+            (TurnBasedCombatStateMachine.battleStateStartScript.ratKing.AbilityTwo.AbilityName + "\n" + TurnBasedCombatStateMachine.battleStateStartScript.ratKing.AbilityTwo.AbilityDesc)))
         {
             TurnBasedCombatStateMachine.usedAbilty = TurnBasedCombatStateMachine.battleStateStartScript.ratKing.AbilityTwo;
             TurnBasedCombatStateMachine.currentState = TurnBasedCombatStateMachine.BattleStates.CHOOSETARGET;
@@ -143,12 +147,14 @@ public class BattleGUI : MonoBehaviour
     private void DisplayNathanChoice()
     {
 
-        if (GUI.Button(new Rect(Screen.width / 2 - 165, Screen.height - 50, 150, 30), TurnBasedCombatStateMachine.battleStateStartScript.nathan.AbilityOne.AbilityName))
+        if (GUI.Button(new Rect(Screen.width / 2 - 185, Screen.height - 95, 170, 65),
+            (TurnBasedCombatStateMachine.battleStateStartScript.nathan.AbilityOne.AbilityName + "\n" + TurnBasedCombatStateMachine.battleStateStartScript.nathan.AbilityOne.AbilityDesc)))
         {
             TurnBasedCombatStateMachine.usedAbilty = TurnBasedCombatStateMachine.battleStateStartScript.nathan.AbilityOne;
             TurnBasedCombatStateMachine.currentState = TurnBasedCombatStateMachine.BattleStates.CHOOSETARGET;
         }
-        if (GUI.Button(new Rect(Screen.width / 2 + 15, Screen.height - 50, 150, 30), TurnBasedCombatStateMachine.battleStateStartScript.nathan.AbilityTwo.AbilityName))
+        if (GUI.Button(new Rect(Screen.width / 2 + 35, Screen.height - 95, 170, 65),
+            (TurnBasedCombatStateMachine.battleStateStartScript.nathan.AbilityTwo.AbilityName + "\n" + TurnBasedCombatStateMachine.battleStateStartScript.nathan.AbilityTwo.AbilityDesc)))
         {
             TurnBasedCombatStateMachine.usedAbilty = TurnBasedCombatStateMachine.battleStateStartScript.nathan.AbilityTwo;
             TurnBasedCombatStateMachine.currentState = TurnBasedCombatStateMachine.BattleStates.CHOOSETARGET;
@@ -160,7 +166,7 @@ public class BattleGUI : MonoBehaviour
 
         if (!TurnBasedCombatStateMachine.battleStateStartScript.EnemyOne.Defeated)
         {
-            if (GUI.Button(new Rect(Screen.width / 3 - 75, Screen.height - 50, 150, 30), TurnBasedCombatStateMachine.battleStateStartScript.EnemyOne.CharacterClassName))
+            if (GUI.Button(new Rect(Screen.width / 3 - 75, Screen.height - 65, 165, 30), TurnBasedCombatStateMachine.battleStateStartScript.EnemyOne.CharacterClassName))
             {
                 TurnBasedCombatStateMachine.targetCharacter = TurnBasedCombatStateMachine.battleStateStartScript.EnemyOne;
                 TurnBasedCombatStateMachine.currentState = TurnBasedCombatStateMachine.BattleStates.CALCULATEDAMAGE;
@@ -168,7 +174,7 @@ public class BattleGUI : MonoBehaviour
         }
         if (!TurnBasedCombatStateMachine.battleStateStartScript.EnemyTwo.Defeated)
         {
-            if (GUI.Button(new Rect(Screen.width / 2 - 75, Screen.height - 50, 150, 30), TurnBasedCombatStateMachine.battleStateStartScript.EnemyTwo.CharacterClassName))
+            if (GUI.Button(new Rect(Screen.width / 2 - 75, Screen.height - 65, 165, 30), TurnBasedCombatStateMachine.battleStateStartScript.EnemyTwo.CharacterClassName))
             {
                 TurnBasedCombatStateMachine.targetCharacter = TurnBasedCombatStateMachine.battleStateStartScript.EnemyTwo;
                 TurnBasedCombatStateMachine.currentState = TurnBasedCombatStateMachine.BattleStates.CALCULATEDAMAGE;
@@ -176,7 +182,7 @@ public class BattleGUI : MonoBehaviour
         }
         if (!TurnBasedCombatStateMachine.battleStateStartScript.EnemyThree.Defeated)
         {
-            if (GUI.Button(new Rect(Screen.width / 3 * 2 - 75, Screen.height - 50, 150, 30), TurnBasedCombatStateMachine.battleStateStartScript.EnemyThree.CharacterClassName))
+            if (GUI.Button(new Rect(Screen.width / 3 * 2 - 75, Screen.height - 65, 165, 30), TurnBasedCombatStateMachine.battleStateStartScript.EnemyThree.CharacterClassName))
             {
                 TurnBasedCombatStateMachine.targetCharacter = TurnBasedCombatStateMachine.battleStateStartScript.EnemyThree;
                 TurnBasedCombatStateMachine.currentState = TurnBasedCombatStateMachine.BattleStates.CALCULATEDAMAGE;

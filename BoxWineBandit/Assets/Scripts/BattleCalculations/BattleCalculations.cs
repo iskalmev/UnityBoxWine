@@ -5,6 +5,8 @@ using UnityEngine;
 public class BattleCalculations
 {
 
+    bool miss = false;
+
 
     public void CalculateUsedAbilityDamage(BaseAbility usedAbility)
     {
@@ -23,6 +25,10 @@ public class BattleCalculations
         else if (usedAbility.AbilityType == 4)
         {
             CalculateAbilityMiss(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter);
+        }
+        else if (usedAbility.AbilityType == 5)
+        {
+            CalculateAbilitySiphon(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter);
         }
 
         //Debug.Log("before Anim");
@@ -134,6 +140,7 @@ public class BattleCalculations
 
         if (attacker.HitChance > randomNumber)
         {
+            miss = false;
             if (attacker.CritChance > randomNumber)
             {
                 defender.Health += attacker.Power + defender.Defense;
@@ -160,11 +167,12 @@ public class BattleCalculations
 
 
 
-
+            
         }
         else
         {
             BattleGUI.textBoi.text = attacker.CharacterClassName + " missed healing " + defender.CharacterClassName + ".";
+            miss = true;
         }
     }
 
@@ -176,6 +184,7 @@ public class BattleCalculations
 
         if(attacker.HitChance > randomNumber)
         {
+            miss = false;
             if (attacker.CritChance > randomNumber)
             {
                 defender.Health -= attacker.Power;
@@ -205,6 +214,7 @@ public class BattleCalculations
         else
         {
             BattleGUI.textBoi.text = attacker.CharacterClassName + " missed damaging " + defender.CharacterClassName + ".";
+            miss = true;
         }
 
 
@@ -217,6 +227,7 @@ public class BattleCalculations
 
         if (attacker.HitChance > randomNumber)
         {
+            miss = false;
             if (attacker.CritChance > randomNumber)
             {
                 defender.HitChance -= attacker.Power * 4;
@@ -252,6 +263,7 @@ public class BattleCalculations
         else
         {
             BattleGUI.textBoi.text = attacker.CharacterClassName + " missed reducing " + defender.CharacterClassName + "'s hitchance.";
+            miss = true;
         }
 
     }
@@ -263,7 +275,7 @@ public class BattleCalculations
 
         if (attacker.HitChance > randomNumber)
         {
-            
+            miss = false;
             defender.Defense += 1;
             defender.HitChance -= 15;
             BattleGUI.textBoi.text = attacker.CharacterClassName + " increased " + defender.CharacterClassName + "'s defense why reducing hitchance";
@@ -283,12 +295,63 @@ public class BattleCalculations
         else
         {
             BattleGUI.textBoi.text = attacker.CharacterClassName + " missed buffing " + defender.CharacterClassName + ".";
+            miss = true;
         }
 
 
     }
 
-    
+
+    private void CalculateAbilitySiphon(BaseClass attacker, BaseClass defender)
+    {
+
+        float randomNumber = (Random.value * 100);
+
+        if (attacker.HitChance > randomNumber)
+        {
+            miss = false;
+            if (attacker.CritChance > randomNumber)
+            {
+                defender.Health -= attacker.Power;
+                attacker.Health += attacker.Power / 2;
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " critically damaged " + defender.CharacterClassName + " for " + (attacker.Power) + " damage while healing himself for " + (attacker.Power / 2);
+            }
+            else
+            {
+                defender.Health -= attacker.Power - defender.Defense;
+                attacker.Health += (attacker.Power - defender.Defense) / 2;
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " damaged " + defender.CharacterClassName + " for " + (attacker.Power - defender.Defense) + " damage while healing himself for " + (attacker.Power - defender.Defense) / 2;
+            }
+
+            if (defender.Health < 1)
+            {
+                defender.Defeated = true;
+                BattleGUI.textBoi.text += " The hit caused " + defender.CharacterClassName + " to be defeated";
+            }
+            if(attacker.Health > attacker.MaxHealth)
+            {
+                attacker.Health = attacker.MaxHealth;
+            }
+
+
+            Debug.Log("Current Health: " + defender.Health);
+
+            //if (defender == TurnBasedCombatStateMachine.battleStateStartScript.EnemyOne)
+            //{
+            //    BattleGUI.EnemyOneImage.fillAmount = (float)(defender.Health) / (float)(defender.MaxHealth);
+            //}
+
+        }
+        else
+        {
+            BattleGUI.textBoi.text = attacker.CharacterClassName + " missed damaging " + defender.CharacterClassName + ".";
+            miss = true;
+        }
+
+
+    }
+
+
     public static void playAnimation(BaseClass source, BaseClass target, BaseAbility ability)
     {
         UnityEngine.GameObject sour;
