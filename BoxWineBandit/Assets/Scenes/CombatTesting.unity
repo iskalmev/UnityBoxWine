@@ -656,6 +656,7 @@ MonoBehaviour:
   Nathan: {fileID: 21300000, guid: 12bb6dab365b6694c8fc4ae8a7780556, type: 3}
   textObj: {fileID: 1271949759}
   textCount: {fileID: 0}
+  buttonObj: {fileID: 1872038307}
 --- !u!114 &189874299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1441,6 +1442,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 12bb6dab365b6694c8fc4ae8a7780556,
         type: 3}
+    - target: {fileID: 7532153812409500757, guid: 6585750ff08140f4a9cab525949b118e,
+        type: 3}
+      propertyPath: m_Text
+      value: "Mitchell Hash: \r\n\r\nA big loser.\r\nMitch is a man\u2026 well let\u2019s
+        not go too far there.\r\nMitch is a person who dwells in the depths of North
+        Carolina.\r\nMitch often gets bullied by his friends and by himself."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6585750ff08140f4a9cab525949b118e, type: 3}
 --- !u!1 &539543658
@@ -3727,7 +3735,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Mitchell Hash : \r\n\r\nA big loser.\r\nMitch is a man\u2026 well let\u2019s
+  m_Text: "Mitchell Hash: \r\n\r\nA big loser.\r\nMitch is a man\u2026 well let\u2019s
     not go too far there.\r\nMitch is a person who dwells in the depths of North Carolina.\r\nMitch
     often gets bullied by his friends and by himself."
 --- !u!222 &1271949760

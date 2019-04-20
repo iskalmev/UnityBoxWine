@@ -15,7 +15,9 @@ public class Story5 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        this.gameObject.SetActive(false);
+        // gameObject.GetComponent<Image>().overrideSprite = Mitch;
+        textObj.text = "A huge success for Mitchell for defeating an Elder Mitch is no small task.\nBut now is not the time to rest; more fights are on the horizon";
     }
 
     // Update is called once per frame

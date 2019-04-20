@@ -61,8 +61,13 @@ public class BattleStateStart
         EnemyOne = new BaseGator();
         EnemyTwo = new BaseHurricane();
         EnemyThree = new BaseGator();
-
+        BattleGUI.textBoi.text = "";
         GameObject.Find("EnemyTwo").GetComponent<SpriteRenderer>().sprite = GameObject.Find("HurricaneHolder").GetComponent<SpriteRenderer>().sprite;
+        MC.Power += 2;
+        MC.Defense += 1;
+        MC.CritChance += 3;
+        MC.Health += 5;
+        MC.MaxHealth += 5;
     }
 
     private void CreateFightThree()
@@ -73,8 +78,13 @@ public class BattleStateStart
         EnemyOne = new BaseGator();
         EnemyTwo = new BaseBigMitch();
         EnemyThree = new BaseGator();
-
+        BattleGUI.textBoi.text = "";
         GameObject.Find("EnemyTwo").GetComponent<SpriteRenderer>().sprite = GameObject.Find("BigMitchHolder").GetComponent<SpriteRenderer>().sprite;
+        MC.Power += 5;
+        MC.Defense += 3;
+        MC.CritChance += 8;
+        MC.Health += 15;
+        MC.MaxHealth += 15;
     }
 
     private void CreateFightFour()
@@ -85,9 +95,14 @@ public class BattleStateStart
         EnemyOne = new BaseGator();
         EnemyTwo = new BaseMadoka();
         EnemyThree = new BaseGator();
-
+        BattleGUI.textBoi.text = "";
         GameObject.Find("EnemyTwo").GetComponent<SpriteRenderer>().sprite = GameObject.Find("MadokaHolder").GetComponent<SpriteRenderer>().sprite;
-        
+        MC.Power += 10;
+        MC.Defense += 6;
+        MC.CritChance += 7;
+        MC.Health += 25;
+        MC.MaxHealth += 25;
+
     }
 
     private void CreateFightFive()
@@ -98,8 +113,14 @@ public class BattleStateStart
         EnemyOne = new BaseGator();
         EnemyTwo = new BaseHeart();
         EnemyThree = new BaseGator();
-
+        BattleGUI.textBoi.text = "";
         GameObject.Find("EnemyTwo").GetComponent<SpriteRenderer>().sprite = GameObject.Find("HeartHolder").GetComponent<SpriteRenderer>().sprite;
+
+        MC.Power += 17;
+        MC.Defense += 11;
+        MC.CritChance += 15;
+        MC.Health += 45;
+        MC.MaxHealth += 45;
     }
 
 

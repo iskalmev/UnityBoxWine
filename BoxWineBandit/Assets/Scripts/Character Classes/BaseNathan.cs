@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,12 +11,12 @@ public class BaseNathan : BaseClass
 
         CharacterClassName = "Nathan";
         CharacterClassDescription = "This is Nathan";
-        MaxHealth = 12;
-        Health = 12;
-        Defense = 1;
-        Power = 5;
-        CritChance = 5;
-        HitChance = 95;
+        MaxHealth = 120;
+        Health = 120;
+        Defense = 10;
+        Power = 42;
+        CritChance = 15;
+        HitChance = 98;
         AbilityOne = new NathanAbilityOne();
         AbilityTwo = new NathanAbilityTwo();
         Defeated = false;

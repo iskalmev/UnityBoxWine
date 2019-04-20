@@ -10,12 +10,12 @@ public class BaseRatKing : BaseClass
 
         CharacterClassName = "Rat King";
         CharacterClassDescription = "King of the Rats";
-        MaxHealth = 12;
-        Health = 12;
-        Defense = 1;
-        Power = 5;
+        MaxHealth = 105;
+        Health = 105;
+        Defense = 28;
+        Power = 40;
         CritChance = 5;
-        HitChance = 95;
+        HitChance = 97;
         AbilityOne = new RatKingAbilityOne();
         AbilityTwo = new RatKingAbilityTwo();
         Defeated = false;

@@ -9,7 +9,7 @@ public class BoxWineBanditAbilityTwo : BaseAbility
     public BoxWineBanditAbilityTwo()
     {
         AbilityName = "Box Wine";
-        AbilityDesc = "Heal One Ally";
+        AbilityDesc = "Heal One Ally\nWhile Reducing their Defense";
         AbilityType = 2;
     }
 

@@ -10,11 +10,11 @@ public class BaseBoxWineBandit : BaseClass
 
         CharacterClassName = "Box Wine Bandit";
         CharacterClassDescription = "This is Main Character Class";
-        MaxHealth = 12;
-        Health = 12;
-        Defense = 1;
-        Power = 5;
-        CritChance = 5;
+        MaxHealth = 140;
+        Health = 140;
+        Defense = 7;
+        Power = 65;
+        CritChance = 8;
         HitChance = 95;
         AbilityOne = new BoxWineBanditAbilityOne();
         AbilityTwo = new BoxWineBanditAbilityTwo();

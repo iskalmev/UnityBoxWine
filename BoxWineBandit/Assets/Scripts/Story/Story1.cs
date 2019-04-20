@@ -21,7 +21,8 @@ public class Story1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        gameObject.GetComponent<Image>().overrideSprite = Mitch;
+        textObj.text = "This is Mitchell Hash.\nMitchell lives down in the bayous of North Carolina.\nBut not everthing is rainbows and shunshine for Mitchell";
     }
 
     public void buttonClicked()

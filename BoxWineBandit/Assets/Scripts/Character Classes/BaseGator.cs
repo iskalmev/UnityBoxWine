@@ -9,10 +9,10 @@ public class BaseGator : BaseClass
 
         CharacterClassName = "Gator";
         CharacterClassDescription = "This is the Gator class";
-        MaxHealth = 10;
-        Health = 10;
-        Defense = 2;
-        Power = 4;
+        MaxHealth = 128;
+        Health = 128;
+        Defense = 22;
+        Power = 42;
         CritChance = 0;
         HitChance = 95;
         AbilityOne = new GatorAbilityOne();

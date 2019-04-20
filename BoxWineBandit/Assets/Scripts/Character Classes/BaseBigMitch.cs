@@ -9,12 +9,12 @@ public class BaseBigMitch : BaseClass
 
         CharacterClassName = "Big Mitch";
         CharacterClassDescription = "This is the Gator class";
-        MaxHealth = 35;
-        Health = 35;
-        Defense = 0;
-        Power = 7;
+        MaxHealth = 550;
+        Health = 550;
+        Defense = 5;
+        Power = 78;
         CritChance = 0;
-        HitChance = 95;
+        HitChance = 92;
         AbilityOne = new BaseBigMitchAbilityOne();
         AbilityTwo = new BaseBigMitchAbilityOne();
         Defeated = false;

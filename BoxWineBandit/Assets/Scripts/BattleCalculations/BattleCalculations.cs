@@ -30,6 +30,11 @@ public class BattleCalculations
         {
             CalculateAbilitySiphon(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter);
         }
+        else if (usedAbility.AbilityType == 6)
+        {
+            CalculateAbilityRend(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter);
+        }
+
 
         //Debug.Log("before Anim");
         //playAnimation(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter, usedAbility);
@@ -143,9 +148,19 @@ public class BattleCalculations
             miss = false;
             if (attacker.CritChance > randomNumber)
             {
-                defender.Health += attacker.Power + defender.Defense;
+                if (defender.Defense > 0)
+                {
+                    defender.Health += attacker.Power + defender.Defense;
+                
+                    BattleGUI.textBoi.text = attacker.CharacterClassName + " critically healed " + defender.CharacterClassName + " for " + (attacker.Power + defender.Defense) + " health";
+                }
+                else
+                {
+                    defender.Health += attacker.Power;
 
-                BattleGUI.textBoi.text = attacker.CharacterClassName + " critically healed " + defender.CharacterClassName + " for " + (attacker.Power + defender.Defense) + " health.";
+                    BattleGUI.textBoi.text = attacker.CharacterClassName + " critically healed " + defender.CharacterClassName + " for " + (attacker.Power) + " health";
+                }
+                
 
 
                 if (defender.Health > defender.MaxHealth)
@@ -156,8 +171,8 @@ public class BattleCalculations
             else
             {
                 defender.Health += attacker.Power;
-
-                BattleGUI.textBoi.text = attacker.CharacterClassName + " healed " + defender.CharacterClassName + " for " + (attacker.Power) + " health.";
+                defender.Defense -= attacker.Power / 8;
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " healed " + defender.CharacterClassName + " for " + (attacker.Power) + " health while reducing his defense by " + (attacker.Power / 8);
 
                 if (defender.Health > defender.MaxHealth)
                 {
@@ -187,13 +202,33 @@ public class BattleCalculations
             miss = false;
             if (attacker.CritChance > randomNumber)
             {
-                defender.Health -= attacker.Power;
-                BattleGUI.textBoi.text = attacker.CharacterClassName + " critically damaged " + defender.CharacterClassName + " for " + (attacker.Power) + " damage.";
+                if (defender.Defense < 0)
+                {
+                    defender.Health -= (attacker.Power - defender.Defense) * 2;
+                    BattleGUI.textBoi.text = attacker.CharacterClassName + " critically damaged " + defender.CharacterClassName + " for " + (attacker.Power - defender.Defense + attacker.Defense) + " damage.";
+                }
+                else
+                {
+                    defender.Health -= attacker.Power * 2;
+                    BattleGUI.textBoi.text = attacker.CharacterClassName + " critically damaged " + defender.CharacterClassName + " for " + (attacker.Power) + " damage.";
+
+                }
+                
             }
             else
             {
-                defender.Health -= attacker.Power - defender.Defense;
-                BattleGUI.textBoi.text = attacker.CharacterClassName + " damaged " + defender.CharacterClassName + " for " + (attacker.Power - defender.Defense) + " damage.";
+                if (attacker.Power > defender.Defense)
+                {
+                    defender.Health -= attacker.Power - defender.Defense;
+                    BattleGUI.textBoi.text = attacker.CharacterClassName + " damaged " + defender.CharacterClassName + " for " + (attacker.Power - defender.Defense) + " damage.";
+                }
+                else
+                {
+                    defender.Health -= 1;
+                    BattleGUI.textBoi.text = attacker.CharacterClassName + " barely damaged " + defender.CharacterClassName + " for 1 damage.";
+
+                }
+
             }
             
             if (defender.Health < 1)
@@ -230,8 +265,8 @@ public class BattleCalculations
             miss = false;
             if (attacker.CritChance > randomNumber)
             {
-                defender.HitChance -= attacker.Power * 4;
-                BattleGUI.textBoi.text = attacker.CharacterClassName + " critically reduced " + defender.CharacterClassName + "'s hitchance";
+                defender.HitChance -= attacker.Power / 3 * 2;
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " critically reduced " + defender.CharacterClassName + "'s hitchance by " + attacker.Power / 3 * 2 + "%";
                 if (defender.HitChance < 15)
                 {
                     defender.HitChance = 15;
@@ -244,8 +279,8 @@ public class BattleCalculations
             }
             else
             {
-                defender.HitChance -= (attacker.Power - defender.Defense) * 4;
-                BattleGUI.textBoi.text = attacker.CharacterClassName + " reduced " + defender.CharacterClassName + "'s hitchance";
+                defender.HitChance -= attacker.Power / 3;
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " reduced " + defender.CharacterClassName + "'s hitchance by " + attacker.Power / 3 + "%";
                 if (defender.HitChance < 15)
                 {
                     defender.HitChance = 15;
@@ -276,14 +311,14 @@ public class BattleCalculations
         if (attacker.HitChance > randomNumber)
         {
             miss = false;
-            defender.Defense += 1;
-            defender.HitChance -= 15;
-            BattleGUI.textBoi.text = attacker.CharacterClassName + " increased " + defender.CharacterClassName + "'s defense why reducing hitchance";
-            if (defender.HitChance < 25)
+            defender.CritChance += 18;
+            
+            BattleGUI.textBoi.text = attacker.CharacterClassName + " increased " + defender.CharacterClassName + "'s crit chance by 18%";
+            if (defender.CritChance > 94)
             {
-                defender.HitChance = 25;
-                defender.Defense -= 1;
-                BattleGUI.textBoi.text += " and it won't change anymore.";
+                
+                BattleGUI.textBoi.text += " and it can't go any higher.";
+                defender.CritChance = 95;
             }
             else
             {
@@ -312,9 +347,9 @@ public class BattleCalculations
             miss = false;
             if (attacker.CritChance > randomNumber)
             {
-                defender.Health -= attacker.Power;
-                attacker.Health += attacker.Power / 2;
-                BattleGUI.textBoi.text = attacker.CharacterClassName + " critically damaged " + defender.CharacterClassName + " for " + (attacker.Power) + " damage while healing himself for " + (attacker.Power / 2);
+                defender.Health -= (attacker.Power - defender.Defense) * 2;
+                attacker.Health += attacker.Power - defender.Defense;
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " critically damaged " + defender.CharacterClassName + " for " + ((attacker.Power - defender.Defense) * 2) + " damage while healing himself for " + (attacker.Power - defender.Defense);
             }
             else
             {
@@ -351,6 +386,50 @@ public class BattleCalculations
 
     }
 
+
+    private void CalculateAbilityRend(BaseClass attacker, BaseClass defender)
+    {
+
+        float randomNumber = (Random.value * 100);
+
+        if (attacker.HitChance > randomNumber)
+        {
+            miss = false;
+            if (attacker.CritChance > randomNumber)
+            {
+                defender.Health -= attacker.Power;
+                defender.Defense -= attacker.Power / 3;
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " critically damaged " + defender.CharacterClassName + " for " + (attacker.Power) + " damage while reducing their defense for " + (attacker.Power / 3);
+            }
+            else
+            {
+                defender.Health -= attacker.Power - defender.Defense;
+                defender.Defense -= attacker.Power / 6;
+                BattleGUI.textBoi.text = attacker.CharacterClassName + " damaged " + defender.CharacterClassName + " for " + (attacker.Power - defender.Defense) + " damage while reducing their defense for " + attacker.Power / 6;
+            }
+
+            if (defender.Health < 1)
+            {
+                defender.Defeated = true;
+                BattleGUI.textBoi.text += " The hit caused " + defender.CharacterClassName + " to be defeated";
+            }
+            
+            Debug.Log("Current Health: " + defender.Health);
+
+            //if (defender == TurnBasedCombatStateMachine.battleStateStartScript.EnemyOne)
+            //{
+            //    BattleGUI.EnemyOneImage.fillAmount = (float)(defender.Health) / (float)(defender.MaxHealth);
+            //}
+
+        }
+        else
+        {
+            BattleGUI.textBoi.text = attacker.CharacterClassName + " missed damaging " + defender.CharacterClassName + ".";
+            miss = true;
+        }
+
+
+    }
 
     public static void playAnimation(BaseClass source, BaseClass target, BaseAbility ability)
     {
@@ -417,71 +496,76 @@ public class BattleCalculations
 
 
         //aDDED THIS SHIT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        if(ability.AbilityName == "Gator Bite")
+        if (!TurnBasedCombatStateMachine.battleCalcScript.miss)
         {
 
-            GameObject theGatorAttack = GameObject.Find("GatorBite0000").gameObject;
-            GatorBite playerScript = theGatorAttack.GetComponent<GatorBite>();
-            Debug.Log("BIG GATOR ATTACK");
-            //tar.transform.position = tar.transform.position + new Vector3(10, 10, 0);
-            playerScript.getInfo(tar, sour, theGatorAttack);
-            
 
-            //abil.GetComponent<GatorBite>().getInfo(tar, sour);
+            if (ability.AbilityName == "Gator Bite")
+            {
 
-        }
-        else if(ability.AbilityName == "Rat Throw")
-        {
-            GameObject theAttack = GameObject.Find("RatProjectileTrans").gameObject;
-            RatThrow playerScript = theAttack.GetComponent<RatThrow>();
-            playerScript.getInfo(tar, sour);
-        }
-        else if (ability.AbilityName == "Rat Wall")
-        {
-            GameObject theAttack = GameObject.Find("RatWall0002").gameObject;
-            RatWall playerScript = theAttack.GetComponent<RatWall>();
-            playerScript.getInfo(tar, sour);
-        }
-        else if (ability.AbilityName == "Steal Cat")
-        {
-            GameObject theAttack = GameObject.Find("cat").gameObject;
-            StealCat playerScript = theAttack.GetComponent<StealCat>();
-            playerScript.getInfo(tar, sour);
-        }
-        else if (ability.AbilityName == "Spill Ranch")
-        {
-            GameObject theAttack = GameObject.Find("RatProjectileTrans").gameObject;
-            RatThrow playerScript = theAttack.GetComponent<RatThrow>();
-            playerScript.getInfo(tar, sour);
-        }
-        else if (ability.AbilityName == "Cinder Strike")
-        {
-            GameObject theAttack = GameObject.Find("MitchAttack0008 (1)").gameObject;
-            MitchAttack playerScript = theAttack.GetComponent<MitchAttack>();
-            playerScript.getInfo(tar, sour);
-        }
-        else if (ability.AbilityName == "Box Wine")
-        {
-            GameObject theAttack = GameObject.Find("RedBoxWine").gameObject;
-            BoxWine playerScript = theAttack.GetComponent<BoxWine>();
-            playerScript.getInfo(tar, sour);
-        }
-        else if (ability.AbilityName == "Airblast")
-        {
-            GameObject theAttack = GameObject.Find("BasicWindAttack0003").gameObject;
-            BasicWindAttack playerScript = theAttack.GetComponent<BasicWindAttack>();
-            playerScript.getInfo(tar, sour);
-        }
-        else if (ability.AbilityName == "Stomp")
-        {
-            GameObject theAttack = GameObject.Find("boot").gameObject;
-            Boot playerScript = theAttack.GetComponent<Boot>();
-            playerScript.getInfo(tar, sour);
-        }
-        else
-        {
-            ability.UseAbility(tar, sour);
-            Debug.Log("BIG LAME ATTACK");
+                GameObject theGatorAttack = GameObject.Find("GatorBite0000").gameObject;
+                GatorBite playerScript = theGatorAttack.GetComponent<GatorBite>();
+                Debug.Log("BIG GATOR ATTACK");
+                //tar.transform.position = tar.transform.position + new Vector3(10, 10, 0);
+                playerScript.getInfo(tar, sour, theGatorAttack);
+
+
+                //abil.GetComponent<GatorBite>().getInfo(tar, sour);
+
+            }
+            else if (ability.AbilityName == "Rat Throw")
+            {
+                GameObject theAttack = GameObject.Find("RatProjectileTrans").gameObject;
+                RatThrow playerScript = theAttack.GetComponent<RatThrow>();
+                playerScript.getInfo(tar, sour);
+            }
+            else if (ability.AbilityName == "Rat Wall")
+            {
+                GameObject theAttack = GameObject.Find("RatWall0002").gameObject;
+                RatWall playerScript = theAttack.GetComponent<RatWall>();
+                playerScript.getInfo(tar, sour);
+            }
+            else if (ability.AbilityName == "Steal Cat")
+            {
+                GameObject theAttack = GameObject.Find("cat").gameObject;
+                StealCat playerScript = theAttack.GetComponent<StealCat>();
+                playerScript.getInfo(tar, sour);
+            }
+            else if (ability.AbilityName == "Spill Ranch")
+            {
+                GameObject theAttack = GameObject.Find("RatProjectileTrans").gameObject;
+                RatThrow playerScript = theAttack.GetComponent<RatThrow>();
+                playerScript.getInfo(tar, sour);
+            }
+            else if (ability.AbilityName == "Cinder Strike")
+            {
+                GameObject theAttack = GameObject.Find("MitchAttack0008 (1)").gameObject;
+                MitchAttack playerScript = theAttack.GetComponent<MitchAttack>();
+                playerScript.getInfo(tar, sour);
+            }
+            else if (ability.AbilityName == "Box Wine")
+            {
+                GameObject theAttack = GameObject.Find("RedBoxWine").gameObject;
+                BoxWine playerScript = theAttack.GetComponent<BoxWine>();
+                playerScript.getInfo(tar, sour);
+            }
+            else if (ability.AbilityName == "Airblast")
+            {
+                GameObject theAttack = GameObject.Find("BasicWindAttack0003").gameObject;
+                BasicWindAttack playerScript = theAttack.GetComponent<BasicWindAttack>();
+                playerScript.getInfo(tar, sour);
+            }
+            else if (ability.AbilityName == "Stomp")
+            {
+                GameObject theAttack = GameObject.Find("boot").gameObject;
+                Boot playerScript = theAttack.GetComponent<Boot>();
+                playerScript.getInfo(tar, sour);
+            }
+            else
+            {
+                ability.UseAbility(tar, sour);
+                Debug.Log("BIG LAME ATTACK");
+            }
         }
 
 

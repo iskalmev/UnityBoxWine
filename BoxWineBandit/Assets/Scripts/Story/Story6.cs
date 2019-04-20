@@ -10,12 +10,15 @@ public class Story6 : MonoBehaviour
     public Sprite Mitch, FMM, Hurricane, Gator, Big, Madoka, Heart, Easter, Halloween, Itchell, RatKing, Nathan;
     private int count = 0;
     public Text textObj, textCount;
+    public Button buttonObj;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        this.gameObject.SetActive(false);
+        // gameObject.GetComponent<Image>().overrideSprite = Mitch;
+        textObj.text = "Finally...\n\nIt's over.";
     }
 
     // Update is called once per frame
@@ -68,14 +71,16 @@ public class Story6 : MonoBehaviour
     {
 
         //backButton = false;
-        if (count < 2)
+        if (count < 1)
         {
             count += 1;
             buttonClicked();
         }
         else
         {
-            Story6Toggle.complete = true;
+            count += 1;
+            buttonClicked();
+            buttonObj.gameObject.SetActive(false);
         }
 
         //textCount.text = (count + 1).ToString() + "/12";

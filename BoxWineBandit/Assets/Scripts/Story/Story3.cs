@@ -15,7 +15,9 @@ public class Story3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        this.gameObject.SetActive(false);
+        // gameObject.GetComponent<Image>().overrideSprite = Mitch;
+        textObj.text = "Hurricane Mitch has been defeated and Mitchell feels himself getting stronger and more confidant now that it is gone.";
     }
 
     // Update is called once per frame
@@ -45,7 +47,7 @@ public class Story3 : MonoBehaviour
             case 2:
                 gameObject.GetComponent<Image>().overrideSprite = Big;
                 this.gameObject.SetActive(true);
-                textObj.text = "He is here.\nOne of the an Elder Mitch,\na joke of old.\nBig Mitch is a quite respected joke, but one eroded by time.\nBig Mitch has lost some of his power since his prime,and a good thing too, because if he were at full power his size would be infinite.";
+                textObj.text = "He is here.\nOne of the Elder Mitch,\na a joke of old.\nBig Mitch is a quite respected joke, but one eroded by time.\nBig Mitch has lost some of his power since his prime,and a good thing too, because if he were at full power his size would be infinite.";
                 break;
 
 
