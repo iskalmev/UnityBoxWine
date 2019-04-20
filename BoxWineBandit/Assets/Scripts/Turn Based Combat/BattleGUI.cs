@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class BattleGUI : MonoBehaviour
@@ -28,7 +29,6 @@ public class BattleGUI : MonoBehaviour
 
 
     public static GameObject mitchAttack, mitchWine, ratThrown, ratWall, nathanSteal, nathanRanch, gatorAttack;
-
 
 
 
@@ -60,13 +60,17 @@ public class BattleGUI : MonoBehaviour
 
 
         gatorAttack = this.gameObject.GetComponent<AbilityHolder>().gatorAttack;
-}
+
+
+    }
 
     // Update is called once per frame
     void Update()
     {
 
-        
+
+
+
 
 
         BattleGUI.EnemyOneImage.fillAmount = (float)(TurnBasedCombatStateMachine.battleStateStartScript.EnemyOne.Health) / (float)(TurnBasedCombatStateMachine.battleStateStartScript.EnemyOne.MaxHealth);
@@ -218,5 +222,7 @@ public class BattleGUI : MonoBehaviour
             }
         }
     }
+
+
 
 }
