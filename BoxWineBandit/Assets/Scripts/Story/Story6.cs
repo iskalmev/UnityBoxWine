@@ -18,7 +18,7 @@ public class Story6 : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         // gameObject.GetComponent<Image>().overrideSprite = Mitch;
-        textObj.text = "Finally...\n\nIt's over.";
+        textObj.text = "After Heart of the Cards Mitch was defeated, the party started forward again feeling they were close to the end.\nSuddenly a sense of stillness washed over them, almost as if entering a state of limbo.";
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class Story6 : MonoBehaviour
             case 1:
                 gameObject.GetComponent<Image>().overrideSprite = FMM;
                 this.gameObject.SetActive(true);
-                textObj.text = "There he is.\n\n FeelsMitchMan.\nThe Ancient joke.\nFeelsMitchMan is the culmination of all of Mitchell's failure.";
+                textObj.text = "There he is.\n\nFeelsMitchMan.\nThe Ancient joke.\nFeelsMitchMan is the culmination of all of Mitchell's failure.";
                 break;
 
             case 2:

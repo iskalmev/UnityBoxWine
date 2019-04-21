@@ -41,7 +41,7 @@ public class Story4 : MonoBehaviour
             case 1:
                 gameObject.GetComponent<Image>().overrideSprite = Madoka;
                 this.gameObject.SetActive(true);
-                textObj.text = "Madoka Michika appears before Mitchell. Mithcell's love of anime personifeid!";
+                textObj.text = "Madoka Michika appears before Mitchell. Mitchell's love of anime personifeid!";
                 break;
 
             case 2:
