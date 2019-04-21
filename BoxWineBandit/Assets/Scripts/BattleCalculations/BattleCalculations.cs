@@ -561,6 +561,18 @@ public class BattleCalculations
                 Boot playerScript = theAttack.GetComponent<Boot>();
                 playerScript.getInfo(tar, sour);
             }
+            else if (ability.AbilityName == "magicbolt")
+            {
+                GameObject theAttack = GameObject.Find("Trail").gameObject;
+                MagicBolt playerScript = theAttack.GetComponent<MagicBolt>();
+                playerScript.getInfo(tar, sour);
+            }
+            else if (ability.AbilityName == "throwcard")
+            {
+                GameObject theAttack = GameObject.Find("jace").gameObject;
+                CardAttack playerScript = theAttack.GetComponent<CardAttack>();
+                playerScript.getInfo(tar, sour);
+            }
             else
             {
                 ability.UseAbility(tar, sour);
