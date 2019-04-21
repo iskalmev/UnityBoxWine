@@ -71,16 +71,14 @@ public class Story6 : MonoBehaviour
     {
 
         //backButton = false;
-        if (count < 1)
+        if (count < 2)
         {
             count += 1;
             buttonClicked();
         }
         else
         {
-            count += 1;
-            buttonClicked();
-            buttonObj.gameObject.SetActive(false);
+            Story6Toggle.complete = true;
         }
 
         //textCount.text = (count + 1).ToString() + "/12";

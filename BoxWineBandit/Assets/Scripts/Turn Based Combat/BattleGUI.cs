@@ -96,7 +96,8 @@ public class BattleGUI : MonoBehaviour
         }
         else if (TurnBasedCombatStateMachine.currentState == TurnBasedCombatStateMachine.BattleStates.CHOOSETARGET)
         {
-            if (TurnBasedCombatStateMachine.usedAbilty.AbilityType == 1 || TurnBasedCombatStateMachine.usedAbilty.AbilityType == 4 || TurnBasedCombatStateMachine.usedAbilty.AbilityType == 5 || TurnBasedCombatStateMachine.usedAbilty.AbilityType == 6)
+            if (TurnBasedCombatStateMachine.usedAbilty.AbilityType == 1 || TurnBasedCombatStateMachine.usedAbilty.AbilityType == 4 
+                || TurnBasedCombatStateMachine.usedAbilty.AbilityType == 5 || TurnBasedCombatStateMachine.usedAbilty.AbilityType == 6 || TurnBasedCombatStateMachine.usedAbilty.AbilityType == 10)
             {
                 DisplayTargetChoice();
             }

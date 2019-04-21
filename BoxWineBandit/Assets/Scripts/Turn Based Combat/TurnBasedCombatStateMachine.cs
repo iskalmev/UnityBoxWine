@@ -117,14 +117,14 @@ public class TurnBasedCombatStateMachine : MonoBehaviour
                         currentState = BattleStates.PLAYERCHOICE;
                     }
                 }
-                //if (storyCount == 6)
-                //{
-                //    if (Story6Toggle.complete)
-                //    {
-                //        battleStateStartScript.PrepareBattle(fightCount);
-                //        currentState = BattleStates.PLAYERCHOICE;
-                //    }
-                //}
+                if (storyCount == 6)
+                {
+                    if (Story6Toggle.complete)
+                    {
+                        battleStateStartScript.PrepareBattle(fightCount);
+                        currentState = BattleStates.PLAYERCHOICE;
+                    }
+                }
 
 
                 break;

@@ -34,6 +34,11 @@ public class BattleCalculations
         {
             CalculateAbilityRend(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter);
         }
+        else if (usedAbility.AbilityType == 1)
+        {
+            CalculateAbilityShit(TurnBasedCombatStateMachine.currentCharacter, TurnBasedCombatStateMachine.targetCharacter);
+
+        }
 
 
         //Debug.Log("before Anim");
@@ -281,9 +286,9 @@ public class BattleCalculations
             {
                 defender.HitChance -= attacker.Power / 3;
                 BattleGUI.textBoi.text = attacker.CharacterClassName + " reduced " + defender.CharacterClassName + "'s hitchance by " + attacker.Power / 3 + "%";
-                if (defender.HitChance < 15)
+                if (defender.HitChance < 25)
                 {
-                    defender.HitChance = 15;
+                    defender.HitChance = 25;
                     BattleGUI.textBoi.text += " and it won't go any lower.";
                 }
                 else
@@ -335,6 +340,17 @@ public class BattleCalculations
 
 
     }
+
+    private void CalculateAbilityShit(BaseClass attacker, BaseClass defender)
+    {
+
+        BattleGUI.textBoi.text = "FMM missed and can only ever miss because that's how bad he is.";
+
+
+
+    }
+
+
 
 
     private void CalculateAbilitySiphon(BaseClass attacker, BaseClass defender)

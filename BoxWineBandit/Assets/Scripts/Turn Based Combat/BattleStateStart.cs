@@ -36,6 +36,10 @@ public class BattleStateStart
         {
             CreateFightFive();
         }
+        else if (fight == 6)
+        {
+            CreateFightSix();
+        }
 
 
     }
@@ -121,6 +125,27 @@ public class BattleStateStart
         MC.CritChance += 15;
         MC.Health += 45;
         MC.MaxHealth += 45;
+    }
+
+
+    private void CreateFightSix()
+    {
+        MC = new BaseBoxWineBandit();
+        ratKing = new BaseRatKing();
+        nathan = new BaseNathan();
+        
+        EnemyTwo = new BaseFMM();
+        EnemyOne = new phDefeated();
+        EnemyThree = new phDefeated();
+        BattleGUI.textBoi.text = "";
+        GameObject.Find("EnemyTwo").GetComponent<SpriteRenderer>().sprite = GameObject.Find("FMMHolder").GetComponent<SpriteRenderer>().sprite;
+        GameObject.Find("EnemyOne").GetComponent<SpriteRenderer>().sprite = GameObject.Find("FMMHolder").GetComponent<SpriteRenderer>().sprite;
+        GameObject.Find("EnemyThree").GetComponent<SpriteRenderer>().sprite = GameObject.Find("FMMHolder").GetComponent<SpriteRenderer>().sprite;
+        MC.Power += 100;
+        MC.Defense += 100;
+        MC.CritChance += 100;
+        MC.Health += 100;
+        MC.MaxHealth += 100;
     }
 
 
