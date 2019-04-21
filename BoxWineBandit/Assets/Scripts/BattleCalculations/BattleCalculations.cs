@@ -209,13 +209,13 @@ public class BattleCalculations
             {
                 if (defender.Defense < 0)
                 {
-                    defender.Health -= (attacker.Power - defender.Defense) * 2;
-                    BattleGUI.textBoi.text = attacker.CharacterClassName + " critically damaged " + defender.CharacterClassName + " for " + (attacker.Power - defender.Defense + attacker.Defense) + " damage.";
+                    defender.Health -= (int)((attacker.Power - defender.Defense) * 1.5f);
+                    BattleGUI.textBoi.text = attacker.CharacterClassName + " critically damaged " + defender.CharacterClassName + " for " + (int)((attacker.Power - defender.Defense) * 1.5f) + " damage.";
                 }
                 else
                 {
-                    defender.Health -= attacker.Power * 2;
-                    BattleGUI.textBoi.text = attacker.CharacterClassName + " critically damaged " + defender.CharacterClassName + " for " + (attacker.Power) + " damage.";
+                    defender.Health -= (int)(attacker.Power * 1.5f);
+                    BattleGUI.textBoi.text = attacker.CharacterClassName + " critically damaged " + defender.CharacterClassName + " for " + (int)(attacker.Power * 1.5f) + " damage.";
 
                 }
                 

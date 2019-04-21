@@ -9,11 +9,11 @@ public class BaseMadoka : BaseClass
 
         CharacterClassName = "Madoka Mitchika";
         CharacterClassDescription = "This is the Gator class";
-        MaxHealth = 200;
-        Health = 200;
+        MaxHealth = 220;
+        Health = 220;
         Defense = 11;
-        Power = 73;
-        CritChance = 0;
+        Power = 103;
+        CritChance = 1;
         HitChance = 110;
         AbilityOne = new MadokaAbilityOne();
         AbilityTwo = new MadokaAbilityOne();

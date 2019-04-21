@@ -15,7 +15,7 @@ public class BaseRatKing : BaseClass
         Defense = 28;
         Power = 40;
         CritChance = 5;
-        HitChance = 97;
+        HitChance = 96;
         AbilityOne = new RatKingAbilityOne();
         AbilityTwo = new RatKingAbilityTwo();
         Defeated = false;

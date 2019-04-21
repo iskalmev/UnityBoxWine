@@ -46,7 +46,7 @@ public class Story7 : MonoBehaviour
             case 2:
 
                 // this.gameObject.SetActive(true);
-                textObj.text = "Mitchell finally free from his nightmares, is free to return home.\n He says goodbye to his friends who helped him with his quest and started back.\nFinally he can be at peice.";
+                textObj.text = "Mitchell finally free from his nightmares, is free to return home.\nHe says goodbye to his friends who helped him with his quest and started back.\nFinally he can be at peice.";
                 break;
 
 

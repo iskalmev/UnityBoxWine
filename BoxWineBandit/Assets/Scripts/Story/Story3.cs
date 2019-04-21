@@ -47,7 +47,7 @@ public class Story3 : MonoBehaviour
             case 2:
                 gameObject.GetComponent<Image>().overrideSprite = Big;
                 this.gameObject.SetActive(true);
-                textObj.text = "He is here.\nAn Elder Mitch,\naa joke of old.\nBig Mitch is a quite respected joke, but one eroded by time.\nBig Mitch has lost some of his power since his prime, and a good thing too, because if he were at full power his size would be infinite.";
+                textObj.text = "He is here.\nAn Elder Mitch,\na joke of old.\nBig Mitch is a quite respected joke, but one eroded by time.\nBig Mitch has lost some of his power since his prime, and a good thing too, because if he were at full power his size would be infinite.";
                 break;
 
 

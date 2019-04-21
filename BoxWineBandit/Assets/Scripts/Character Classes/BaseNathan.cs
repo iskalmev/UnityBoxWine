@@ -16,7 +16,7 @@ public class BaseNathan : BaseClass
         Defense = 10;
         Power = 42;
         CritChance = 15;
-        HitChance = 98;
+        HitChance = 97;
         AbilityOne = new NathanAbilityOne();
         AbilityTwo = new NathanAbilityTwo();
         Defeated = false;
