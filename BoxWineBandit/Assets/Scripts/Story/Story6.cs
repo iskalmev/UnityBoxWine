@@ -36,19 +36,19 @@ public class Story6 : MonoBehaviour
             case 0:
                 this.gameObject.SetActive(false);
                 // gameObject.GetComponent<Image>().overrideSprite = Mitch;
-                textObj.text = "Finally...\n\nIt's over.";
+                textObj.text = "After Heart of the Cards Mitch was defeated, the party started forward again feeling they were close to the end.\nSuddenly a sense of stillness washed over them, almost as if entering a state of limbo.";
                 break;
 
             case 1:
-               // gameObject.GetComponent<Image>().overrideSprite = Heart;
-               // this.gameObject.SetActive(true);
-                textObj.text = "Mitchell did it.\nHe defeated his enemies.";
+                gameObject.GetComponent<Image>().overrideSprite = FMM;
+                this.gameObject.SetActive(true);
+                textObj.text = "There he is.\n\n FeelsMitchMan.\nThe Ancient joke.\nFeelsMitchMan is the culmination of all of Mitchell's failure.";
                 break;
 
             case 2:
 
                 // this.gameObject.SetActive(true);
-                textObj.text = "Mitchell finally free from his nightmares, is free to return home.\n He says goodbye to his friends who helped him with his quest and started back.\nFinally he can be at peice.";
+                textObj.text = "He is the final obstacle. \nDefeat him and you defeat your past failures and your past self.";
                 break;
 
 
